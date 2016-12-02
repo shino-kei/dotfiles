@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/shino/.oh-my-zsh
+  export ZSH=${HOME}/.oh-my-zsh
 
 setopt nonomatch
 # Set name of the theme to load.
@@ -209,6 +209,14 @@ alias open="xdg-open"
 alias ls='ls --hide=*.*~'
 
 source /opt/ros/indigo/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
+
+
+WORKSPACE_PATH=${HOME}/catkin_ws/devel/setup.zsh
+if [ -e $WORKSPACE_PATH ]; then
+	source $WORKSPACE_PATH
+else
+    echo "$WORKSPACE_PATH is NOT directory."
+fi
+
 # source ~/rosbuild_ws/setup.bash
 
