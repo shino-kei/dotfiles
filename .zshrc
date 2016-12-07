@@ -1,7 +1,9 @@
 # Path to your oh-my-zsh installation.
   export ZSH=${HOME}/.oh-my-zsh
 
+# ワイルドカード(*)による表記を有効にする
 setopt nonomatch
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -202,7 +204,7 @@ build_prompt() {
 PROMPT='%{%f%b%k%}$(build_prompt) 
 $SEGMENT_SEPARATOR '
 
-# ローカル設定を読み込む
+# ローカル環境向け設定は別ファイルに記述する
 [ -f $HOME/dotfiles/local/.zshrc_local ] && . $HOME/dotfiles/local/.zshrc_local
 
 
@@ -219,6 +221,8 @@ case ${OSTYPE} in
     ;;
 esac
 
-
-# source ~/rosbuild_ws/setup.bash
+# ROS関連の設定は、dotfiles/local/.zshrc_localに記述する
+    # source /opt/ros/indigo/setup.bash
+    # source $HOME/catkin_ws/devel/setup.zsh
+    # source ~/rosbuild_ws/setup.zsh
 
