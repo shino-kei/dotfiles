@@ -215,15 +215,7 @@ case ${OSTYPE} in
     alias open="xdg-open"
     alias ls='ls --hide=*.*~'
 
-    source /opt/ros/indigo/setup.zsh
 
-
-    WORKSPACE_PATH=${HOME}/catkin_ws/devel/setup.zsh
-    if [ -e $WORKSPACE_PATH ]; then
-      source $WORKSPACE_PATH
-    else
-        echo "$WORKSPACE_PATH is NOT directory."
-    fi
     ;;
 esac
 
