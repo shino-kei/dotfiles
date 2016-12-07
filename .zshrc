@@ -202,21 +202,31 @@ build_prompt() {
 PROMPT='%{%f%b%k%}$(build_prompt) 
 $SEGMENT_SEPARATOR '
 
+# ローカル設定を読み込む
+[ -f $HOME/dotfiles/local/.zshrc_local ] && . $HOME/dotfiles/local/.zshrc_local
 
 
-# エイリアスの設定
-alias open="xdg-open"
-alias ls='ls --hide=*.*~'
+case ${OSTYPE} in
+  darwin*)
+    # ここに Mac 向けの設定
+    ;;
+  linux*)
+    # エイリアスの設定
+    alias open="xdg-open"
+    alias ls='ls --hide=*.*~'
 
-source /opt/ros/indigo/setup.zsh
+    source /opt/ros/indigo/setup.zsh
 
 
-WORKSPACE_PATH=${HOME}/catkin_ws/devel/setup.zsh
-if [ -e $WORKSPACE_PATH ]; then
-	source $WORKSPACE_PATH
-else
-    echo "$WORKSPACE_PATH is NOT directory."
-fi
+    WORKSPACE_PATH=${HOME}/catkin_ws/devel/setup.zsh
+    if [ -e $WORKSPACE_PATH ]; then
+      source $WORKSPACE_PATH
+    else
+        echo "$WORKSPACE_PATH is NOT directory."
+    fi
+    ;;
+esac
+
 
 # source ~/rosbuild_ws/setup.bash
 

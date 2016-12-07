@@ -1,2 +1,5 @@
 ### ignore gedit backup files 
 *~
+
+local/*  
+!.gitkeep
