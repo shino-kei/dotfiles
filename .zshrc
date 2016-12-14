@@ -1,12 +1,9 @@
 # Path to your oh-my-zsh installation.
   export ZSH=${HOME}/.oh-my-zsh
 
-<<<<<<< HEAD
-=======
 # ワイルドカード(*)による表記を有効にする
 setopt nonomatch
 
->>>>>>> 376da98ef255cf9d09870b9829977104bc1e8a37
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
