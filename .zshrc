@@ -217,10 +217,16 @@ case ${OSTYPE} in
     alias open="xdg-open"
     alias ls='ls --hide=*.*~'
     setopt nonomatch
-
-
-
     ;;
+  cygwin)
+    # エイリアスの設定
+    alias open="cygstart"
+    alias ls='ls --hide=*.*~'
+    setopt nonomatch
+    alias la='ls -a'
+    ;;
+
+
 esac
 
 # ROS関連の設定は、dotfiles/local/.zshrc_localに記述する
