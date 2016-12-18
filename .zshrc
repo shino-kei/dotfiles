@@ -215,7 +215,8 @@ case ${OSTYPE} in
   linux*)
     # エイリアスの設定
     alias open="xdg-open"
-    alias ls='ls --hide=*.*~'
+    # alias ls='ls --hide=*.*~'
+    alias ls='ls -hF --color=auto --hide=*.*~'
     setopt nonomatch
     ;;
   cygwin)
