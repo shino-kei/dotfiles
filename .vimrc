@@ -1,13 +1,13 @@
-	"dein Scripts-----------------------------
+"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/home/Keisuke/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/home/Keisuke/.vim/dein')
+call dein#begin('$HOME/.vim/dein')
 
 " Let dein manage dein
 " Required:
