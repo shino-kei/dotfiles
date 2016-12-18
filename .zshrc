@@ -221,7 +221,7 @@ case ${OSTYPE} in
   cygwin)
     # エイリアスの設定
     alias open="cygstart"
-    alias ls='ls --hide=*.*~'
+    alias ls='ls -hF --color=auto --hide=*.*~ --ignore={NTUSER*,ntuser*}'
     setopt nonomatch
     ;;
 esac
@@ -230,10 +230,16 @@ alias la='ls -a'
 
 # lsコマンド時の色設定を有効にする
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-alias ls="ls -hF --color=auto"
+# alias ls="ls -hF --color=auto"
 alias gls="gls --color"
 
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
+
+# グローバルエイリアス
+alias -g L='| less'
+alias -g G='| grep -i'
+
 
 # ROS関連の設定は、dotfiles/local/.zshrc_localに記述する
     # source /opt/ros/indigo/setup.bash
