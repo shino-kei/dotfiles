@@ -223,7 +223,7 @@ case ${OSTYPE} in
     setopt nonomatch
     # lessコマンド時の色設定
     export LESS='-R'
-    export LESSOPEN='| /usr/share/src-hilite-lesspipe.sh %s'
+    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
     ;;
   cygwin)
     # エイリアスの設定
