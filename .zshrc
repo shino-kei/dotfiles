@@ -210,7 +210,10 @@ $SEGMENT_SEPARATOR '
 
 case ${OSTYPE} in
   darwin*)
-    # ここに Mac 向けの設定
+    # Mac 向けの設定
+    # lessコマンド時の色設定
+    export LESS='-R'
+    export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
     ;;
   linux*)
     # エイリアスの設定
@@ -218,6 +221,9 @@ case ${OSTYPE} in
     # alias ls='ls --hide=*.*~'
     alias ls='ls -hF --color=auto --hide=*.*~'
     setopt nonomatch
+    # lessコマンド時の色設定
+    export LESS='-R'
+    export LESSOPEN='| /usr/share/src-hilite-lesspipe.sh %s'
     ;;
   cygwin)
     # エイリアスの設定
