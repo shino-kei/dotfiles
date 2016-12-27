@@ -98,4 +98,12 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 " ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nmap <Esc><Esc> :nohlsearch<CR><Esc
+
+
+
+" 入力補完
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
