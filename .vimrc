@@ -17,6 +17,8 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('plasticboy/vim-markdown')
+call dein#add('mattn/emmet-vim')
+call dein#add('vim-javascript')
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -103,7 +105,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc
 
 
 " 入力補完
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+"inoremap { {}<Left>
+"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap ( ()<ESC>i
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
