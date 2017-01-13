@@ -22,7 +22,10 @@ call dein#add('vim-javascript')
 call dein#add('Townk/vim-autoclose')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('othree/html5.vim')
-"call dein#add('vim-airline/vim-airline')
+call dein#add ('plasticboy/vim-markdown')
+call dein#add ('kannokanno/previm')
+call dein#add ('tyru/open-browser.vim')
+call dein#add('vim-airline/vim-airline')
 
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
