@@ -27,6 +27,17 @@ call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add('vim-airline/vim-airline')
 
+" Unite outline で関数の見出しをつける 
+" call dein#add ('Shougo/unite.vim')
+" call dein#add ('h1mesuke/unite-outline')
+
+
+"" c++ settings  
+" leader(バックスラッシュ)+cでコメントをトグル
+call dein#add("tyru/caw.vim.git")
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
+
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -39,7 +50,7 @@ syntax enable
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
-  call dein#install()
+call dein#install()
 endif
 
 "End dein Scripts-------------------------
