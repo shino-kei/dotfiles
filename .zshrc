@@ -133,6 +133,9 @@ case ${OSTYPE} in
     # lessコマンド時の色設定
     export LESS='-R'
     export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+    
+    # 各言語向けにgitignoreを自動生成できるようにする
+    function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
     ;;
   cygwin)
     # エイリアスの設定
