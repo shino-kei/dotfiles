@@ -123,6 +123,7 @@ case ${OSTYPE} in
     # lessコマンド時の色設定
     export LESS='-R'
     export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+    PATH="/usr/local/sbin:$PATH" 
     ;;
   linux*)
     # エイリアスの設定
