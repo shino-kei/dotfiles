@@ -120,7 +120,9 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
-
+" スクリプト実行系
+" 編集中のpythonスクリプトを直接実行できるようにする 
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
 
 " 入力補完
 "inoremap { {}<Left>
