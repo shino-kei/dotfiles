@@ -161,6 +161,10 @@ alias -g L='| less'
 alias -g G='| grep -i'
 
 
+if [ -s ~/.nvm/nvm.sh ];
+  then source ~/.nvm/nvm.sh
+fi
+
 # ROS関連の設定は、dotfiles/local/.zshrc_localに記述する
     # source /opt/ros/indigo/setup.bash
     # source $HOME/catkin_ws/devel/setup.zsh
