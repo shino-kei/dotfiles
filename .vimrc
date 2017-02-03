@@ -26,7 +26,9 @@ call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add('vim-airline/vim-airline')
+" Javascript / node js
 call dein#add('vim-scripts/JavaScript-Indent')
+call dein#add('scrooloose/syntastic') " javascriptの文法チェック
 
 " Unite outline で関数の見出しをつける 
 " call dein#add ('Shougo/unite.vim')
