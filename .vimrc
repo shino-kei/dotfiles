@@ -126,6 +126,9 @@ set hlsearch
 " 編集中のpythonスクリプトを直接実行できるようにする 
 autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
 
+" macだと，バックスペースが効かなかったので，下の設定を追加
+set backspace=indent,eol,start
+
 " 入力補完
 "inoremap { {}<Left>
 "inoremap {<Enter> {}<Left><CR><ESC><S-o>
