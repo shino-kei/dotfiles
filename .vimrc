@@ -86,9 +86,12 @@ set showcmd
 " 行番号を表示v
 set number
 " 現在の行を強調表示
-set cursorline
-" 現在の行を強調表示（縦）
-"set cursorcolumn
+" set cursorline
+
+" カーソル行を強調表示しない
+set nocursorline
+" 挿入モードの時のみ、カーソル行をハイライトする
+autocmd InsertEnter,InsertLeave * set cursorline!
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " インデントはスマートインデント
