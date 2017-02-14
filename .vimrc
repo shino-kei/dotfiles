@@ -34,6 +34,14 @@ call dein#add('scrooloose/syntastic') " javascriptの文法チェック
 " call dein#add ('Shougo/unite.vim')
 " call dein#add ('h1mesuke/unite-outline')
 
+" quickrun
+call dein#add('thinca/vim-quickrun')
+" 水平に分割する
+let g:quickrun_config={'*': {'split': ''}}
+
+" quickrun.vim が実行していない場合には <C-c> を呼び出す
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
+
 
 "" c++ settings  
 " leader(バックスラッシュ)+cでコメントをトグル
@@ -85,6 +93,14 @@ set cursorline
 set virtualedit=onemore
 " インデントはスマートインデント
 set smartindent
+
+" 3部コメント以外の単行コメントはオートインデントしない
+if has("autocmd")
+    autocmd FileType *
+      \ let &l:comments
+            \=join(filter(split(&l:comments, ','), 'v:val =~ "^[sme]"'), ',')
+endif
+
 " ビープ音を可視化
 set visualbell
 " 括弧入力時の対応する括弧を表示
@@ -98,6 +114,9 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up>   gk
+
+" <C-e>で行末に移動してインサートモードに入る
+nnoremap <C-e> $a
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -129,8 +148,7 @@ autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
 " macだと，バックスペースが効かなかったので，下の設定を追加
 set backspace=indent,eol,start
 
-" 入力補完
-"inoremap { {}<Left>
-"inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<ESC>i
-"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+noremap <F5> <ESC>:call RUN()<ENTER>
+function! RUN()                     
+  :w|!./%;read                      
+endfunction
