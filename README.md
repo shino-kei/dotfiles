@@ -4,10 +4,16 @@
 
 ### What is this repository for? ###
 
-* スクリプト(Linkdotfiles.sh)を実行することで、$HOME直下に.zshrcや.vimrcなどのシンボリックリンクが貼ることができます
+* スクリプト(Linkdotfiles.sh)を実行することでzshやvimなどの設定ファイルをリポジトリと同期させることができます
+* $HOME直下に.zshrcや.vimrcなどのシンボリックリンクを貼ります
+
 
 ### 使い方 ###
 
+
+* oh-my-zshをインストール
+* Linkdotfiles.shを実行
+* (インストールされてないなら、install_dein.shでdeinをインストール)
 
 ```
 #!shell
