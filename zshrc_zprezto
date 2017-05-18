@@ -1,0 +1,47 @@
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+# 個人設定
+# ローカル環境向け設定は別ファイルに記述する
+[ -f $HOME/dotfiles/local/.zshrc_local ] && . $HOME/dotfiles/local/.zshrc_local
+
+
+case ${OSTYPE} in
+  darwin*)
+    # Mac 向けの設定
+    # lessコマンド時の色設定
+    export LESS='-R'
+    export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+    ;;
+  linux*)
+    # エイリアスの設定
+    alias ls='ls -hF --color=auto --hide=*.*~'
+    setopt nonomatch
+    # lessコマンド時の色設定
+    export LESS='-R'
+    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+    ;;
+  cygwin)
+    # エイリアスの設定
+    alias open="cygstart"
+    alias ls='ls -hF --color=auto --hide=*.*~ --ignore={NTUSER*,ntuser*}'
+    setopt nonomatch
+    ;;
+esac
+
+alias la='ls -a'
+
+# lsコマンド時の色設定を有効にする
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+# alias ls="ls -hF --color=auto"
+alias gls="gls --color"
+
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
+
+# グローバルエイリアス
+alias -g L='| less'
+alias -g G='| grep -i'
