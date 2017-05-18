@@ -16,14 +16,21 @@ case ${OSTYPE} in
     export LESS='-R'
     export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
     ;;
+
   linux*)
     # エイリアスの設定
+    alias open="xdg-open"
     alias ls='ls -hF --color=auto --hide=*.*~'
     setopt nonomatch
+    
     # lessコマンド時の色設定
     export LESS='-R'
     export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+
+    # 各言語向けにgitignoreを自動生成できるようにする
+    function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
     ;;
+
   cygwin)
     # エイリアスの設定
     alias open="cygstart"
