@@ -6,7 +6,7 @@ fi
 # Customize to your needs...
 # 個人設定
 # ローカル環境向け設定は別ファイルに記述する
-[ -f $HOME/dotfiles/local/.zshrc_local ] && . $HOME/dotfiles/local/.zshrc_local
+[ -f $HOME/dotfiles/local/zshrc_local ] && . $HOME/dotfiles/local/zshrc_local
 
 
 case ${OSTYPE} in
