@@ -1,5 +1,15 @@
 #!/bin/zsh
 
+if [ ! -e ~/.zprezto ]; then 
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    mkdir zsh_orig && mv zshmv .zlogin .zlogout .zprofile .zshenv .zshrc zsh_orig
+
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+        ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+fi
+
 ln -sf ~/dotfiles/zshrc_zprezto ~/.zshrc
 ln -sf ~/dotfiles/zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
@@ -19,7 +29,7 @@ case ${OSTYPE} in
 
   cygwin)
     # ここに，cygwin(windows)向け設定を書く
-    ln -sf ~/dotfiles/.minttyrc ~/.minttyrc
+    ln -sf ~/dotfiles/minttyrc ~/.minttyrc
     ;;
 
 
