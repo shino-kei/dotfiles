@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# 初回のみzpreztoをインストールする
 if [ ! -e ~/.zprezto ]; then 
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
     mkdir zsh_orig && mv zshmv .zlogin .zlogout .zprofile .zshenv .zshrc zsh_orig
@@ -30,6 +31,7 @@ case ${OSTYPE} in
   cygwin)
     # ここに，cygwin(windows)向け設定を書く
     ln -sf ~/dotfiles/minttyrc ~/.minttyrc
+    zsh ~/dotfiles/install_dein.sh
     ;;
 
 
