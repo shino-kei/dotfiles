@@ -15,6 +15,7 @@ ln -sf ~/dotfiles/zshrc_zprezto ~/.zshrc
 ln -sf ~/dotfiles/zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
 # OSごとの設定
 case ${OSTYPE} in
