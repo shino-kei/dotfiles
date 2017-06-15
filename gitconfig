@@ -1,0 +1,9 @@
+[user]
+	email = keisuke501@gmail.com
+	name = shino-kei
+[push]
+	default = matching
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	autocrlf = input
+	safecrlf = true
