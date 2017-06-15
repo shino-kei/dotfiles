@@ -30,10 +30,10 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('vim-scripts/JavaScript-Indent')
 call dein#add('scrooloose/syntastic') " javascriptの文法チェック
 
-" Unite outline で関数の見出しをつける 
-" call dein#add ('Shougo/unite.vim')
-" call dein#add ('h1mesuke/unite-outline')
 
+" --見た目系---
+call dein#add('tomasr/molokai')
+" call dein#add('jdkanani/vim-material-theme')
 " quickrun
 call dein#add('thinca/vim-quickrun')
 " 水平に分割する
@@ -87,6 +87,17 @@ set showcmd
 set number
 " 現在の行を強調表示
 " set cursorline
+
+" カラーテーマの設定
+colorscheme molokai
+" colorscheme material-theme
+syntax on
+" 256色¬
+set t_Co=256
+" truecolor¬
+set termguicolors
+" 背景色¬
+set background=dark
 
 " カーソル行を強調表示しない
 set nocursorline

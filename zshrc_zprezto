@@ -36,6 +36,10 @@ case ${OSTYPE} in
     alias open="cygstart"
     alias ls='ls -hF --color=auto --hide=*.*~ --ignore={NTUSER*,ntuser*}'
     setopt nonomatch
+    
+    # lessコマンド時の色設定
+    export LESS='-R'
+    export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
     ;;
 esac
 

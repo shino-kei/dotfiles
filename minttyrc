@@ -1,5 +1,5 @@
 BoldAsFont=no
-Transparency=medium
+Transparency=low
 CursorType=block
 Font=Menlo for Powerline
 FontHeight=10
@@ -56,7 +56,8 @@ Cyan=42,161,152
 BoldCyan=147,161,161
 White=238,232,213
 BoldWhite=253,246,227
-CtrlAltIsAltGr=yes
+CtrlAltIsAltGr=no
 ClipShortcuts=no
 CtrlShiftShortcuts=yes
 BellType=0
+OpaqueWhenFocused=no
