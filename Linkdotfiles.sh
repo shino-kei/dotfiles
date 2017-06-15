@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# 初回のみzpreztoをインストールする
 if [ ! -e ~/.zprezto ]; then 
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
     mkdir zsh_orig && mv zshmv .zlogin .zlogout .zprofile .zshenv .zshrc zsh_orig
@@ -14,6 +15,7 @@ ln -sf ~/dotfiles/zshrc_zprezto ~/.zshrc
 ln -sf ~/dotfiles/zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
 # OSごとの設定
 case ${OSTYPE} in
@@ -30,6 +32,7 @@ case ${OSTYPE} in
   cygwin)
     # ここに，cygwin(windows)向け設定を書く
     ln -sf ~/dotfiles/minttyrc ~/.minttyrc
+    zsh ~/dotfiles/install_dein.sh
     ;;
 
 

@@ -30,6 +30,38 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('vim-scripts/JavaScript-Indent')
 call dein#add('scrooloose/syntastic') " javascriptの文法チェック
 
+" IME setting
+" call dein#add('vim-scripts/fcitx.vim')
+" set timeout timeoutlen=3000 ttimeoutlen=100
+"##### auto fcitx  ###########
+let g:input_toggle = 1
+function! Fcitx2en()
+  let s:input_status = system("fcitx-remote")
+  if s:input_status == 2
+    let g:input_toggle = 1
+    let l:a = system("fcitx-remote -c")
+  endif
+endfunction
+
+function! Fcitx2zh()
+  let s:input_status = system("fcitx-remote")
+  if s:input_status != 2 && g:input_toggle == 1
+    let l:a = system("fcitx-remote -o")
+    let g:input_toggle = 0
+  endif
+endfunction
+
+set ttimeoutlen=150
+"when leaving insert mode
+autocmd InsertLeave * call Fcitx2en()
+" when entering insert mode
+autocmd InsertEnter * call Fcitx2zh()
+"##### auto fcitx end ######
+
+
+" Unite outline で関数の見出しをつける 
+" call dein#add ('Shougo/unite.vim')
+" call dein#add ('h1mesuke/unite-outline')
 
 " --見た目系---
 call dein#add('tomasr/molokai')
@@ -131,6 +163,12 @@ nnoremap <Up>   gk
 
 " <C-e>で行末に移動してインサートモードに入る
 nnoremap <C-e> $a
+
+" IME設定
+" if has('unix')
+"   inoremap <silent><Esc> <Esc>:silent call system('fcitx-remote -c" > /dev/null 2>&1')<CR>
+"   cnoremap <silent><Esc> <Esc>:silent call system('fcitx-remote -c" > /dev/null 2>&1')<CR>
+" endif 
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
