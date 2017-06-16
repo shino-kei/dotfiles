@@ -26,9 +26,11 @@ call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 " Javascript / node js
 call dein#add('vim-scripts/JavaScript-Indent')
 call dein#add('scrooloose/syntastic') " javascriptの文法チェック
+
 
 " IME setting
 " call dein#add('vim-scripts/fcitx.vim')
@@ -123,13 +125,20 @@ set number
 " カラーテーマの設定
 colorscheme molokai
 " colorscheme material-theme
+
 syntax on
-" 256色¬
+" 256色
 set t_Co=256
-" truecolor¬
-set termguicolors
-" 背景色¬
+" 背景色
 set background=dark
+
+" let g:Powerline_symbols = 'fancy'
+" set laststatus=2
+
+" ---vim-airline の設定
+let g:airline_powerline_fonts = 1
+set laststatus=2
+let g:airline_theme = 'molokai'
 
 " カーソル行を強調表示しない
 set nocursorline
