@@ -1,8 +1,8 @@
-BoldAsFont=no
+BoldAsFont=yes
 Transparency=low
 CursorType=block
 Font=Ricty Diminished
-FontHeight=10
+FontHeight=12
 Locale=ja_JP
 Charset=UTF-8
 Columns=191
@@ -63,3 +63,4 @@ BellType=0
 OpaqueWhenFocused=no
 FontWeight=400
 FontIsBold=no
+FontSmoothing=full
