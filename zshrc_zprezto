@@ -63,3 +63,8 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500 
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
+
+
+## Jupyterのコマンド短縮
+alias note='jupyter notebook'
+
