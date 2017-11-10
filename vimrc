@@ -34,7 +34,7 @@ call dein#add('scrooloose/syntastic') " javascriptの文法チェック
 
 " IME setting
 " call dein#add('vim-scripts/fcitx.vim')
-" set timeout timeoutlen=3000 ttimeoutlen=100
+set timeout timeoutlen=200 ttimeoutlen=100
 "##### auto fcitx  ###########
 let g:input_toggle = 1
 function! Fcitx2en()
@@ -80,8 +80,8 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 "" c++ settings  
 " leader(バックスラッシュ)+cでコメントをトグル
 call dein#add("tyru/caw.vim.git")
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
