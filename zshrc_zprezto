@@ -8,7 +8,6 @@ fi
 # ローカル環境向け設定は別ファイルに記述する
 [ -f $HOME/dotfiles/local/zshrc_local ] && . $HOME/dotfiles/local/zshrc_local
 
-
 case ${OSTYPE} in
   darwin*)
     # Mac 向けの設定
@@ -29,6 +28,10 @@ case ${OSTYPE} in
 
     # 各言語向けにgitignoreを自動生成できるようにする
     function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+    if [[ `uname -a` =~ Microsoft ]]; then
+      source $HOME/dotfiles/setup_wsl.sh
+    fi
     ;;
 
   cygwin)
@@ -46,11 +49,11 @@ esac
 alias la='ls -a'
 
 # lsコマンド時の色設定を有効にする
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+# export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 # alias ls="ls -hF --color=auto"
-alias gls="gls --color"
+# alias gls="gls --color"
 
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+# zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 
 # グローバルエイリアス
