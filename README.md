@@ -10,10 +10,7 @@
 
 ### 使い方 ###
 
-
-* oh-my-zshをインストール
-* Linkdotfiles.shを実行
-* (インストールされてないなら、install_dein.shでdeinをインストール)
+* Linkdotfiles.shを実行するだけ
 
 ```
 #!shell
@@ -24,5 +21,4 @@ sh ./Linkdotfiles.sh
 
 
 ### できてないこと
-* zshがoh-my-zshに依存しているが、自動インストールができてないので、手動でやる必要あり.
 * すでに設定ファイルが存在している場合に、強制的に上書きしてしまう.
