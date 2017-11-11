@@ -16,6 +16,7 @@ ln -sf ~/dotfiles/zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/dircolors.256dark ~/.dircolors
 
 # OSごとの設定
 case ${OSTYPE} in
