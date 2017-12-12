@@ -17,6 +17,7 @@ ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/dircolors.256dark ~/.dircolors
+ln -sf ~/dotfiles/setup_ros.sh ~/setup_ros.sh
 
 # OSごとの設定
 case ${OSTYPE} in
