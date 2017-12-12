@@ -7,3 +7,5 @@
 	editor = vim -c \"set fenc=utf-8\"
 	autocrlf = input
 	safecrlf = true
+[alias]
+	st = status

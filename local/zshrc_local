@@ -1,5 +1,5 @@
 if [ -e  /opt/ros/kinetic/setup.zsh ]; then 
-  source /opt/ros/kinetic/setup.zsh
+  source $HOME/setup_ros.sh
 fi
 
 if [ -e  /usr/local/cuda-8.0 ]; then
