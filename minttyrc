@@ -1,7 +1,7 @@
-BoldAsFont=yes
+BoldAsFont=-1
 Transparency=low
 CursorType=block
-Font=Ricty Diminished
+Font=Ubuntu Mono derivative Powerlin
 FontHeight=12
 Locale=ja_JP
 Charset=UTF-8
@@ -64,3 +64,5 @@ OpaqueWhenFocused=no
 FontWeight=400
 FontIsBold=no
 FontSmoothing=full
+BackspaceSendsBS=yes
+DeleteSendsDEL=yes
