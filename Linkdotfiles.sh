@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+source ~/zsh/install_app.sh
+
 # 初回のみzpreztoをインストールする
 if [ ! -e ~/.zprezto ]; then 
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"

@@ -16,21 +16,15 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
-call dein#add('plasticboy/vim-markdown')
-"call dein#add('mattn/emmet-vim')
-call dein#add('vim-scripts/vim-javascript')
+" call dein#add('vim-scripts/vim-javascript')
 call dein#add('Townk/vim-autoclose')
 call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('othree/html5.vim')
 call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-" Javascript / node js
-call dein#add('vim-scripts/JavaScript-Indent')
-call dein#add('scrooloose/syntastic') " javascriptの文法チェック
-
+call dein#add('Shougo/denite.nvim')
 
 " IME setting
 " call dein#add('vim-scripts/fcitx.vim')
@@ -62,6 +56,7 @@ autocmd InsertEnter * call Fcitx2zh()
 
 
 " Unite outline で関数の見出しをつける 
+
 " call dein#add ('Shougo/unite.vim')
 " call dein#add ('h1mesuke/unite-outline')
 

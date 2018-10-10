@@ -1,12 +1,8 @@
+# ローカル環境向け設定は別ファイルに記述する
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# Customize to your needs...
-# 個人設定
-# ローカル環境向け設定は別ファイルに記述する
-[ -f $HOME/dotfiles/local/zshrc_local ] && . $HOME/.zshrc_local
 
 case ${OSTYPE} in
   darwin*)
