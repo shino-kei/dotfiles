@@ -16,20 +16,43 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neocomplcache.vim')
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
 call dein#add('plasticboy/vim-markdown')
 "call dein#add('mattn/emmet-vim')
-call dein#add('vim-scripts/vim-javascript')
+" call dein#add('vim-scripts/vim-javascript')
 call dein#add('Townk/vim-autoclose')
 call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('othree/html5.vim')
+" call dein#add('othree/html5.vim')
 call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
-call dein#add ('tyru/open-browser.vim')
+" call dein#add ('tyru/open-browser.vim')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
+call dein#add('Shougo/denite.nvim')
+call dein#add('bfrg/vim-cpp-modern')
+" call dein#add('taketwo/vim-ros')
 " Javascript / node js
-call dein#add('vim-scripts/JavaScript-Indent')
-call dein#add('scrooloose/syntastic') " javascriptの文法チェック
+" call dein#add('vim-scripts/JavaScript-Indent')
+" call dein#add('scrooloose/syntastic') " javascriptの文法チェック
 
 
 " IME setting
@@ -68,14 +91,39 @@ autocmd InsertEnter * call Fcitx2zh()
 " --見た目系---
 call dein#add('tomasr/molokai')
 " call dein#add('jdkanani/vim-material-theme')
+
 " quickrun
 call dein#add('thinca/vim-quickrun')
-" 水平に分割する
-let g:quickrun_config={'*': {'split': ''}}
+" g:quickrun_config の初期化
+if !exists("g:quickrun_config")
+    let g:quickrun_config={}
+endif
+
+" デフォルトの設定
+" 非同期で実行
+" 出力先
+" エラー : quickfix
+" 成功   : buffer
+let g:quickrun_config["_"] = {
+    \ "runner/vimproc/updatetime" : 80,
+    \ "outputter/buffer/split" : ":rightbelow 8sp",
+    \ "outputter/error/error" : "quickfix",
+    \ "outputter/error/success" : "buffer",
+    \ "outputter" : "error",
+\} 
+let g:quickrun_config.cpp = {
+\   'command': 'g++',
+\   'cmdopt': '-std=c++11'
+\ }
 
 " quickrun.vim が実行していない場合には <C-c> を呼び出す
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
+" nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
 
+" \rでquickfixを閉じて，保存してからquickrunを呼び出す
+let g:quickrun_no_default_key_mappings = 1
+nnoremap \r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 "" c++ settings  
 " leader(バックスラッシュ)+cでコメントをトグル
@@ -101,6 +149,7 @@ endif
 "End dein Scripts-------------------------
 
 
+
 " setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
@@ -123,7 +172,7 @@ set number
 " set cursorline
 
 " カラーテーマの設定
-colorscheme molokai
+" colorscheme molokai
 " colorscheme material-theme
 
 syntax on
@@ -213,3 +262,6 @@ noremap <F5> <ESC>:call RUN()<ENTER>
 function! RUN()                     
   :w|!./%;read                      
 endfunction
+
+autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
+

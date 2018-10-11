@@ -87,3 +87,10 @@ zstyle ':completion:*' recent-dirs-insert both
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
+## ros setings
+source /opt/ros/kinetic/setup.zsh
+# source $HOME/shinoda_ws/devel/setup.bash
+source $HOME/ros_catkin_ws/kinetic/devel/setup.zsh
+source /usr/local/bin/virtualenvwrapper.sh
+
+export EDITOR='vim'
