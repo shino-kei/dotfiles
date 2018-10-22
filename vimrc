@@ -3,8 +3,12 @@ if &compatible
   set nocompatible 
 endif
 
+"dein setup
+let s:dein_dir = $HOME . '/.vim/dein'
+
 " Required:
 set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
+ 
 
 " Required:
 call dein#begin('$HOME/.vim/dein')
@@ -12,6 +16,21 @@ call dein#begin('$HOME/.vim/dein')
 " Let dein manage dein
 " Required:
 call dein#add('Shougo/dein.vim')
+
+call dein#load_toml(s:dein_dir . '/toml/dein.toml', {'lazy': 0})
+call dein#load_toml(s:dein_dir . '/toml/dein_lazy.toml', {'lazy': 1})
+"Linter
+cal dein#add('w0rp/ale')
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
+" 表示に関する設定
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:airline#extensions#ale#open_lnum_symbol = '('
+let g:airline#extensions#ale#close_lnum_symbol = ')'
+let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+highlight link ALEErrorSign Tag
+highlight link ALEWarningSign StorageClass
 
 " 閉じ括弧を補完
 call dein#add('cohama/lexima.vim')
@@ -49,9 +68,11 @@ call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
+
+" denite settings
 call dein#add('Shougo/denite.nvim')
 nnoremap [denite] <Nop>
-nmap <C-d> [denite]
+"nmap <C-d> [denite]
 
 
 " grep
@@ -163,6 +184,7 @@ nnoremap <silent> <C-q> :QuickRun<CR>
 
 
 "" c++ settings  
+
 " leader(バックスラッシュ)+cでコメントをトグル
 call dein#add("tyru/caw.vim.git")
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
