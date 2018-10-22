@@ -13,9 +13,35 @@ call dein#begin('$HOME/.vim/dein')
 " Required:
 call dein#add('Shougo/dein.vim')
 
+" 閉じ括弧を補完
+call dein#add('cohama/lexima.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/vimproc.vim')
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+let g:neosnippet#snippets_directory='.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
+
+
 call dein#add('Townk/vim-autoclose')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add ('plasticboy/vim-markdown')
@@ -112,10 +138,28 @@ call dein#add('altercation/vim-colors-solarized')
 " quickrun
 call dein#add('thinca/vim-quickrun')
 " 水平に分割する
-let g:quickrun_config={'*': {'split': ''}}
+let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config._ = {
+      \ 'outputter' : 'error',
+      \ 'outputter/error/success' : 'buffer',
+      \ 'outputter/error/error'   : 'quickfix',
+      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+      \ 'outputter/buffer/close_on_empty' : 1,
+      \ }
+
+let g:quickrun_config.cpp = {
+\   'command': 'g++',
+\   'cmdopt': '-std=c++11'
+\ }
+
+" \r でquickfixを閉じて、保存してからquickrunを実行する。
+let g:quickrun_no_default_key_mappings = 1
+nnoremap \q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+xnoremap \q :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 " quickrun.vim が実行していない場合には <C-c> を呼び出す
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
+nnoremap <silent> <C-q> :QuickRun<CR>
 
 
 "" c++ settings  
@@ -208,6 +252,7 @@ nnoremap <Up>   gk
 
 " <C-e>で行末に移動してインサートモードに入る
 nnoremap <C-e> $a
+inoremap <C-e> <C-o>$
 
 " IME設定
 " if has('unix')
