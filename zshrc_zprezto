@@ -94,3 +94,6 @@ source $HOME/ros_catkin_ws/kinetic/devel/setup.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 
 export EDITOR='vim'
+
+#export http_proxy=
+#export https_proxy=
