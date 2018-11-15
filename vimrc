@@ -151,8 +151,8 @@ call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap'
 
 
 " --見た目系---
-" call dein#add('tomasr/molokai')
-call dein#add('altercation/vim-colors-solarized')
+call dein#add('tomasr/molokai')
+" call dein#add('altercation/vim-colors-solarized')
 
 
 " call dein#add('jdkanani/vim-material-theme')
@@ -207,7 +207,8 @@ endif
 let g:solarized_termcolors=16
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme molokai
 
 
 "End dein Scripts-------------------------
@@ -240,7 +241,7 @@ syntax on
 " ---vim-airline の設定
 let g:airline_powerline_fonts = 1
 set laststatus=2
-"let g:airline_theme = 'solarized'
+let g:airline_theme = 'molokai'
 
 " カーソル行を強調表示しない
 set nocursorline
