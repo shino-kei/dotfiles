@@ -229,11 +229,6 @@ set hidden
 set showcmd
 
 
-" 見た目系
-" 行番号を表示v
-set number
-" 現在の行を強調表示
-" set cursorline
 
 " カラーテーマの設定
 syntax on

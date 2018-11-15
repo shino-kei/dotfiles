@@ -25,6 +25,8 @@ repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 hook_add = '''
   let g:jedi#completions_command = "<C-n>"
+  let g:jedi#use_tabs_not_buffers = 1 
+  let g:jedi#popup_select_first = 0 
   autocmd FileType python setlocal completeopt-=preview
 '''
 
@@ -32,5 +34,5 @@ hook_add = '''
 repo = 'ervandew/supertab'
 hook_add = '''
   let g:SuperTabContextDefaultCompletionType = "context"
-  let g:SuperTabDefaultCompletionType = "<c-n>"
+  let g:SuperTabDefaultCompletionType = "<C-n>"
 '''
