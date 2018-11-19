@@ -86,3 +86,5 @@ zstyle ':completion:*' recent-dirs-insert both
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
+source ~/catkin_ws/devel/setup.zsh
+source /opt/ros/melodic/setup.zsh

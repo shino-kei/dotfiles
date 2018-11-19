@@ -19,18 +19,20 @@ call dein#add('Shougo/dein.vim')
 
 call dein#load_toml(s:dein_dir . '/toml/dein.toml', {'lazy': 0})
 call dein#load_toml(s:dein_dir . '/toml/dein_lazy.toml', {'lazy': 1})
+
 "Linter
-cal dein#add('w0rp/ale')
-" 保存時のみ実行する
-let g:ale_lint_on_text_changed = 0
-" 表示に関する設定
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:airline#extensions#ale#open_lnum_symbol = '('
-let g:airline#extensions#ale#close_lnum_symbol = ')'
-let g:ale_echo_msg_format = '[%linter%]%code: %%s'
-highlight link ALEErrorSign Tag
-highlight link ALEWarningSign StorageClass
+" cal dein#add('w0rp/ale')
+" " 保存時のみ実行する
+" let g:ale_lint_on_text_changed = 0
+" " 表示に関する設定
+" let g:ale_sign_error = 'x'
+" let g:ale_sign_warning = ''
+" let g:airline#extensions#ale#open_lnum_symbol = '('
+" let g:airline#extensions#ale#close_lnum_symbol = ')'
+" let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+" highlight link ALEErrorSign Tagg
+" highlight link ALEWarningSign StorageClass
+
 
 " 閉じ括弧を補完
 call dein#add('cohama/lexima.vim')
