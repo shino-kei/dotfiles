@@ -20,20 +20,6 @@ call dein#add('Shougo/dein.vim')
 call dein#load_toml(s:dein_dir . '/toml/dein.toml', {'lazy': 0})
 call dein#load_toml(s:dein_dir . '/toml/dein_lazy.toml', {'lazy': 1})
 
-"Linter
-" cal dein#add('w0rp/ale')
-" " 保存時のみ実行する
-" let g:ale_lint_on_text_changed = 0
-" " 表示に関する設定
-" let g:ale_sign_error = 'x'
-" let g:ale_sign_warning = ''
-" let g:airline#extensions#ale#open_lnum_symbol = '('
-" let g:airline#extensions#ale#close_lnum_symbol = ')'
-" let g:ale_echo_msg_format = '[%linter%]%code: %%s'
-" highlight link ALEErrorSign Tagg
-" highlight link ALEWarningSign StorageClass
-
-
 " 閉じ括弧を補完
 call dein#add('cohama/lexima.vim')
 " Add or remove your plugins here:
@@ -47,14 +33,6 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
@@ -62,13 +40,6 @@ endif
 
 let g:neosnippet#snippets_directory='.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
 
-
-call dein#add('Townk/vim-autoclose')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add ('plasticboy/vim-markdown')
-call dein#add ('kannokanno/previm')
-call dein#add ('tyru/open-browser.vim')
-call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 
 " denite settings
@@ -130,8 +101,6 @@ call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap'
 ""##### auto fcitx  ###########
 "let g:input_toggle = 1
 "function! Fcitx2en()
-"  let s:input_status = system("fcitx-remote")
-"  if s:input_status == 2
 "    let g:input_toggle = 1
 "    let l:a = system("fcitx-remote -c")
 "  endif
@@ -155,45 +124,14 @@ call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap'
 " --見た目系---
 call dein#add('tomasr/molokai')
 " call dein#add('altercation/vim-colors-solarized')
-
-
 " call dein#add('jdkanani/vim-material-theme')
-" quickrun
-call dein#add('thinca/vim-quickrun')
-" 水平に分割する
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-      \ 'outputter' : 'error',
-      \ 'outputter/error/success' : 'buffer',
-      \ 'outputter/error/error'   : 'quickfix',
-      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
-      \ 'outputter/buffer/close_on_empty' : 1,
-      \ }
-
-let g:quickrun_config.cpp = {
-\   'command': 'g++',
-\   'cmdopt': '-std=c++11'
-\ }
-
-" \r でquickfixを閉じて、保存してからquickrunを実行する。
-let g:quickrun_no_default_key_mappings = 1
-nnoremap \q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-xnoremap \q :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
-
-" quickrun.vim が実行していない場合には <C-c> を呼び出す
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
-nnoremap <silent> <C-q> :QuickRun<CR>
 
 
 "" c++ settings  
-
 " leader(バックスラッシュ)+cでコメントをトグル
 call dein#add("tyru/caw.vim.git")
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
-
-" You can specify revision/branch/tag.
-call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
 " Required:
 call dein#end()
@@ -210,7 +148,7 @@ let g:solarized_termcolors=16
 syntax enable
 set background=dark
 " colorscheme solarized
-colorscheme molokai
+" colorscheme molokai
 
 
 "End dein Scripts-------------------------
@@ -229,8 +167,6 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
-
-
 
 " カラーテーマの設定
 syntax on
