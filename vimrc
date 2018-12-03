@@ -172,7 +172,7 @@ set number
 " set cursorline
 
 " カラーテーマの設定
-" colorscheme molokai
+colorscheme molokai
 " colorscheme material-theme
 
 syntax on

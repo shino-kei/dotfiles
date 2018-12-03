@@ -48,7 +48,8 @@ esac
 
 alias la='ls -a'
 
-# lsコマンド時の色設定を有効にする
+# for use color scheme in tmux
+export TERM=xterm-256color
 
 # デフォルト設定(別になくても良い)
 # LS_COLORS="デフォルトの色設定(ご自由に)"
@@ -90,7 +91,8 @@ alias note='jupyter notebook'
 ## ros setings
 source /opt/ros/kinetic/setup.zsh
 # source $HOME/shinoda_ws/devel/setup.bash
-source $HOME/ros_catkin_ws/kinetic/devel/setup.zsh
+# source $HOME/ros_catkin_ws/kinetic/devel/setup.zsh
+source /home/leus/ros_catkin_ws/skn_ros_ws/devel/setup.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 
 export EDITOR='vim'
