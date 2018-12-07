@@ -56,7 +56,7 @@ call dein#add('bfrg/vim-cpp-modern')
 
 
 " IME setting
-" call dein#add('vim-scripts/fcitx.vim')
+call dein#add('vim-scripts/fcitx.vim')
 set timeout timeoutlen=200 ttimeoutlen=100
 "##### auto fcitx  ###########
 let g:input_toggle = 1
@@ -80,7 +80,7 @@ set ttimeoutlen=150
 "when leaving insert mode
 autocmd InsertLeave * call Fcitx2en()
 " when entering insert mode
-autocmd InsertEnter * call Fcitx2zh()
+" autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 
 
@@ -172,14 +172,15 @@ set number
 " set cursorline
 
 " カラーテーマの設定
-colorscheme molokai
+" colorscheme molokai
 " colorscheme material-theme
+
 
 syntax on
 " 256色
 set t_Co=256
 " 背景色
-set background=dark
+" set background=dark
 
 " let g:Powerline_symbols = 'fancy'
 " set laststatus=2
@@ -187,7 +188,7 @@ set background=dark
 " ---vim-airline の設定
 let g:airline_powerline_fonts = 1
 set laststatus=2
-let g:airline_theme = 'molokai'
+" let g:airline_theme = 'molokai'
 
 " カーソル行を強調表示しない
 set nocursorline
