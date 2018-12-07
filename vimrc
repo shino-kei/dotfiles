@@ -3,6 +3,9 @@ if &compatible
   set nocompatible 
 endif
 
+"dein setup
+let s:dein_dir = $HOME . '/.vim/dein'
+
 " Required:
 set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 
@@ -13,50 +16,41 @@ call dein#begin('$HOME/.vim/dein')
 " Required:
 call dein#add('Shougo/dein.vim')
 
+call dein#load_toml(s:dein_dir . '/toml/dein.toml', {'lazy': 0})
+call dein#load_toml(s:dein_dir . '/toml/dein_lazy.toml', {'lazy': 1})
+
+" 閉じ括弧を補完
+call dein#add('cohama/lexima.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neocomplcache.vim')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/vimproc.vim')
+
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
-call dein#add('plasticboy/vim-markdown')
-"call dein#add('mattn/emmet-vim')
-" call dein#add('vim-scripts/vim-javascript')
-call dein#add('Townk/vim-autoclose')
-call dein#add('nathanaelkane/vim-indent-guides')
-" call dein#add('othree/html5.vim')
-call dein#add ('plasticboy/vim-markdown')
-call dein#add ('kannokanno/previm')
-" call dein#add ('tyru/open-browser.vim')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('Shougo/denite.nvim')
-call dein#add('bfrg/vim-cpp-modern')
-" call dein#add('taketwo/vim-ros')
-" Javascript / node js
-" call dein#add('vim-scripts/JavaScript-Indent')
-" call dein#add('scrooloose/syntastic') " javascriptの文法チェック
+let g:neosnippet#snippets_directory='.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
 
+call dein#add('vim-airline/vim-airline-themes')
+" Javascript / node js
+call dein#add('vim-scripts/JavaScript-Indent')
+call dein#add('scrooloose/syntastic') " javascriptの文法チェック
+
+" denite settings
+call dein#add('Shougo/denite.nvim')
+nnoremap [denite] <Nop>
+"nmap <C-d> [denite]
 
 " IME setting
-call dein#add('vim-scripts/fcitx.vim')
+" call dein#add('vim-scripts/fcitx.vim')
 set timeout timeoutlen=200 ttimeoutlen=100
 "##### auto fcitx  ###########
 let g:input_toggle = 1
@@ -68,30 +62,83 @@ function! Fcitx2en()
   endif
 endfunction
 
-function! Fcitx2zh()
-  let s:input_status = system("fcitx-remote")
-  if s:input_status != 2 && g:input_toggle == 1
-    let l:a = system("fcitx-remote -o")
-    let g:input_toggle = 0
-  endif
-endfunction
+" grep
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
-set ttimeoutlen=150
-"when leaving insert mode
-autocmd InsertLeave * call Fcitx2en()
-" when entering insert mode
-" autocmd InsertEnter * call Fcitx2zh()
-"##### auto fcitx end ######
+nnoremap <silent> [denite]<C-g> :<C-u>Denite grep -mode=normal<CR>
+nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume<CR>
+nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume -cursor-pos=+1 -immediately<CR>
+nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately<CR>
+
+" ノーマルモードで起動、jjでノーマルへ
+call denite#custom#option('default', {'mode': 'normal'})
+call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+
+" ファイル一覧
+noremap [denite] :Denite file_rec -mode=insert
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ ['.git/', '__pycache__/', '*.o', '*.make', '*.min.*'])
+
+" ディレクトリ一覧
+noremap [denite]<C-d> :<C-u>Denite directory_rec<CR>
+noremap [denite]<C-c> :<C-u>Denite directory_rec -default-action=cd<CR>
+
+" 移動
+call denite#custom#map('normal', 'j', '<denite:nop>', 'noremap')
+call denite#custom#map('normal', 'k', '<denite:nop>', 'noremap')
+call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
+call denite#custom#map('insert', '<C-u>', '<denite:move_up_path>', 'noremap')
+
+" ウィンドウを分割して開く
+call denite#custom#map('normal', '<C-j>', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
 
 
-" Unite outline で関数の見出しをつける 
-" call dein#add ('Shougo/unite.vim')
-" call dein#add ('h1mesuke/unite-outline')
+" call dein#add('taketwo/vim-ros')
+
+" IME setting
+"call dein#add('vim-scripts/fcitx.vim')
+"set timeout timeoutlen=20 ttimeoutlen=10
+""##### auto fcitx  ###########
+"let g:input_toggle = 1
+"function! Fcitx2en()
+"    let g:input_toggle = 1
+"    let l:a = system("fcitx-remote -c")
+"  endif
+"endfunction
+"
+"function! Fcitx2zh()
+"  let s:input_status = system("fcitx-remote")
+"  if s:input_status != 2 && g:input_toggle == 1
+"    let l:a = system("fcitx-remote -o")
+"    let g:input_toggle = 0
+"  endif
+"endfunction
+"
+""when leaving insert mode
+"autocmd InsertLeave * call Fcitx2en()
+"" when entering insert mode
+"autocmd InsertEnter * call Fcitx2zh()
+""##### auto fcitx end ######
+
 
 " --見た目系---
 call dein#add('tomasr/molokai')
+" call dein#add('altercation/vim-colors-solarized')
 " call dein#add('jdkanani/vim-material-theme')
-
 " quickrun
 call dein#add('thinca/vim-quickrun')
 " g:quickrun_config の初期化
@@ -117,8 +164,7 @@ let g:quickrun_config.cpp = {
 \ }
 
 " quickrun.vim が実行していない場合には <C-c> を呼び出す
-" nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
-au FileType qf nnoremap <silent><buffer>q :quit<CR>
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
 
 " \rでquickfixを閉じて，保存してからquickrunを呼び出す
 let g:quickrun_no_default_key_mappings = 1
@@ -146,8 +192,14 @@ if dein#check_install()
 call dein#install()
 endif
 
-"End dein Scripts-------------------------
+let g:solarized_termcolors=16
+syntax enable
+set background=dark
+" colorscheme solarized
+" colorscheme molokai
 
+
+"End dein Scripts-------------------------
 
 
 " setting
@@ -172,15 +224,14 @@ set number
 " set cursorline
 
 " カラーテーマの設定
-" colorscheme molokai
+colorscheme molokai
 " colorscheme material-theme
-
 
 syntax on
 " 256色
 set t_Co=256
 " 背景色
-" set background=dark
+set background=dark
 
 " let g:Powerline_symbols = 'fancy'
 " set laststatus=2
@@ -188,7 +239,7 @@ set t_Co=256
 " ---vim-airline の設定
 let g:airline_powerline_fonts = 1
 set laststatus=2
-" let g:airline_theme = 'molokai'
+let g:airline_theme = 'molokai'
 
 " カーソル行を強調表示しない
 set nocursorline
@@ -222,6 +273,7 @@ nnoremap <Up>   gk
 
 " <C-e>で行末に移動してインサートモードに入る
 nnoremap <C-e> $a
+inoremap <C-e> <C-o>$
 
 " IME設定
 " if has('unix')
@@ -263,6 +315,3 @@ noremap <F5> <ESC>:call RUN()<ENTER>
 function! RUN()                     
   :w|!./%;read                      
 endfunction
-
-autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
-

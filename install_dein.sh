@@ -7,3 +7,7 @@ else
   mkdir $HOME/.vim/dein
   sh /tmp/installer.sh $HOME/.vim/dein
 fi
+
+mkdir -p $HOME/.vim/dein/toml
+ln -sf ~/dotfiles/vim/dein.toml ~/.vim/dein/toml/dein.toml
+ln -sf ~/dotfiles/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml

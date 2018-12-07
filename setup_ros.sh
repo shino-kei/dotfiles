@@ -1,6 +1,6 @@
 # rosのセットアップスクリプトを環境変数に取り込む
 
-ROS_SETUP_PATH="/opt/ros/kinetic/"
+ROS_SETUP_PATH="/opt/ros/melodic/"
 WS_SETUP_PATH="$HOME/catkin_ws/devel/"
 
 # ネットワーク設定
