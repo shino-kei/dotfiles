@@ -25,9 +25,6 @@ case ${OSTYPE} in
     # 各言語向けにgitignoreを自動生成できるようにする
     function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-    # ros environment path
-    source /opt/ros/melodic/setup.zsh
-
     if [[ `uname -a` =~ Microsoft ]]; then
       source $HOME/dotfiles/setup_wsl.sh
     fi
@@ -86,5 +83,7 @@ zstyle ':completion:*' recent-dirs-insert both
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
-source ~/catkin_ws/devel/setup.zsh
-source /opt/ros/melodic/setup.zsh
+# source ~/catkin_ws/devel/setup.zsh
+source /opt/ros/kinetic/setup.zsh
+source ~/ros_catkin_ws/devel/setup.zsh
+

@@ -3,7 +3,7 @@ if &compatible
   set nocompatible 
 endif
 
-"dein setup
+" dein setup
 let s:dein_dir = $HOME . '/.vim/dein'
 
 " Required:
@@ -21,17 +21,17 @@ call dein#load_toml(s:dein_dir . '/toml/dein.toml', {'lazy': 0})
 call dein#load_toml(s:dein_dir . '/toml/dein_lazy.toml', {'lazy': 1})
 
 " 閉じ括弧を補完
-call dein#add('cohama/lexima.vim')
+" call dein#add('cohama/lexima.vim')
 " Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/vimproc.vim')
+" call dein#add('Shougo/neosnippet.vim')
+" call dein#add('Shougo/neosnippet-snippets')
+" call dein#add('Shougo/neocomplcache')
+" call dein#add('Shougo/vimproc.vim')
 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " For conceal markers.
 if has('conceal')
@@ -40,101 +40,64 @@ endif
 
 let g:neosnippet#snippets_directory='.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
 
-call dein#add('vim-airline/vim-airline-themes')
-
 " denite settings
-call dein#add('Shougo/denite.nvim')
-nnoremap [denite] <Nop>
+" call dein#add('Shougo/denite.nvim')
+" nnoremap [denite] <Nop>
 "nmap <C-d> [denite]
 
 
 " grep
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-nnoremap <silent> [denite]<C-g> :<C-u>Denite grep -mode=normal<CR>
-nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume<CR>
-nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume -cursor-pos=+1 -immediately<CR>
-nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately<CR>
-
-" ノーマルモードで起動、jjでノーマルへ
-call denite#custom#option('default', {'mode': 'normal'})
-call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
-
+" call denite#custom#var('grep', 'command', ['ag'])
+" call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+" call denite#custom#var('grep', 'recursive_opts', [])
+" call denite#custom#var('grep', 'separator', ['--'])
+" call denite#custom#var('grep', 'final_opts', [])
+"
+" nnoremap <silent> [denite]<C-g> :<C-u>Denite grep -mode=normal<CR>
+" nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume<CR>
+" nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume -cursor-pos=+1 -immediately<CR>
+" nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately<CR>
+"
+" " ノーマルモードで起動、jjでノーマルへ
+" call denite#custom#option('default', {'mode': 'normal'})
+" call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+"
 " ファイル一覧
-noremap [denite] :Denite file_rec -mode=insert
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ ['.git/', '__pycache__/', '*.o', '*.make', '*.min.*'])
+" noremap [denite] :Denite file_rec -mode=insert
+" call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+" call denite#custom#var('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+" call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      " \ ['.git/', '__pycache__/', '*.o', '*.make', '*.min.*'])
 
 " ディレクトリ一覧
-noremap [denite]<C-d> :<C-u>Denite directory_rec<CR>
-noremap [denite]<C-c> :<C-u>Denite directory_rec -default-action=cd<CR>
+" noremap [denite]<C-d> :<C-u>Denite directory_rec<CR>
+" noremap [denite]<C-c> :<C-u>Denite directory_rec -default-action=cd<CR>
 
 " 移動
-call denite#custom#map('normal', 'j', '<denite:nop>', 'noremap')
-call denite#custom#map('normal', 'k', '<denite:nop>', 'noremap')
-call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
-call denite#custom#map('insert', '<C-u>', '<denite:move_up_path>', 'noremap')
+" call denite#custom#map('normal', 'j', '<denite:nop>', 'noremap')
+" call denite#custom#map('normal', 'k', '<denite:nop>', 'noremap')
+" call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+" call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+" call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+" call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+" call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
+" call denite#custom#map('insert', '<C-u>', '<denite:move_up_path>', 'noremap')
 
 " ウィンドウを分割して開く
-call denite#custom#map('normal', '<C-j>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
+" call denite#custom#map('normal', '<C-j>', '<denite:do_action:split>', 'noremap')
+" call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
+" call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
+" call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
 
 
 " call dein#add('taketwo/vim-ros')
-
-" IME setting
-"call dein#add('vim-scripts/fcitx.vim')
-"set timeout timeoutlen=20 ttimeoutlen=10
-""##### auto fcitx  ###########
-"let g:input_toggle = 1
-"function! Fcitx2en()
-"    let g:input_toggle = 1
-"    let l:a = system("fcitx-remote -c")
-"  endif
-"endfunction
-"
-"function! Fcitx2zh()
-"  let s:input_status = system("fcitx-remote")
-"  if s:input_status != 2 && g:input_toggle == 1
-"    let l:a = system("fcitx-remote -o")
-"    let g:input_toggle = 0
-"  endif
-"endfunction
-"
-""when leaving insert mode
-"autocmd InsertLeave * call Fcitx2en()
-"" when entering insert mode
-"autocmd InsertEnter * call Fcitx2zh()
-""##### auto fcitx end ######
-
-
 " --見た目系---
 call dein#add('tomasr/molokai')
 " call dein#add('altercation/vim-colors-solarized')
-" call dein#add('jdkanani/vim-material-theme')
-
-
-"" c++ settings  
-" leader(バックスラッシュ)+cでコメントをトグル
-call dein#add("tyru/caw.vim.git")
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " Required:
 call dein#end()
+call dein#save_state()
 
 " Required:
 filetype plugin indent on
@@ -144,12 +107,12 @@ if dein#check_install()
 call dein#install()
 endif
 
-let g:solarized_termcolors=16
+" let g:solarized_termcolors=16
 syntax enable
-set background=dark
+" set background=dark
 " colorscheme solarized
 " colorscheme molokai
-
+set t_Co=256
 
 "End dein Scripts-------------------------
 
