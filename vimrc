@@ -20,80 +20,12 @@ call dein#add('Shougo/dein.vim')
 call dein#load_toml(s:dein_dir . '/toml/dein.toml', {'lazy': 0})
 call dein#load_toml(s:dein_dir . '/toml/dein_lazy.toml', {'lazy': 1})
 
-" 閉じ括弧を補完
-" call dein#add('cohama/lexima.vim')
-" Add or remove your plugins here:
-" call dein#add('Shougo/neosnippet.vim')
-" call dein#add('Shougo/neosnippet-snippets')
-" call dein#add('Shougo/neocomplcache')
-" call dein#add('Shougo/vimproc.vim')
-
-" Plugin key-mappings.
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
 let g:neosnippet#snippets_directory='.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
-
-" denite settings
-" call dein#add('Shougo/denite.nvim')
-" nnoremap [denite] <Nop>
-"nmap <C-d> [denite]
-
-
-" grep
-" call denite#custom#var('grep', 'command', ['ag'])
-" call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-" call denite#custom#var('grep', 'recursive_opts', [])
-" call denite#custom#var('grep', 'separator', ['--'])
-" call denite#custom#var('grep', 'final_opts', [])
-"
-" nnoremap <silent> [denite]<C-g> :<C-u>Denite grep -mode=normal<CR>
-" nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume<CR>
-" nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume -cursor-pos=+1 -immediately<CR>
-" nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately<CR>
-"
-" " ノーマルモードで起動、jjでノーマルへ
-" call denite#custom#option('default', {'mode': 'normal'})
-" call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
-"
-" ファイル一覧
-" noremap [denite] :Denite file_rec -mode=insert
-" call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-" call denite#custom#var('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
-" call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      " \ ['.git/', '__pycache__/', '*.o', '*.make', '*.min.*'])
-
-" ディレクトリ一覧
-" noremap [denite]<C-d> :<C-u>Denite directory_rec<CR>
-" noremap [denite]<C-c> :<C-u>Denite directory_rec -default-action=cd<CR>
-
-" 移動
-" call denite#custom#map('normal', 'j', '<denite:nop>', 'noremap')
-" call denite#custom#map('normal', 'k', '<denite:nop>', 'noremap')
-" call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-" call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-" call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-" call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-" call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
-" call denite#custom#map('insert', '<C-u>', '<denite:move_up_path>', 'noremap')
-
-" ウィンドウを分割して開く
-" call denite#custom#map('normal', '<C-j>', '<denite:do_action:split>', 'noremap')
-" call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
-" call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
-" call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
-
-
-" call dein#add('taketwo/vim-ros')
-" --見た目系---
-call dein#add('tomasr/molokai')
-" call dein#add('altercation/vim-colors-solarized')
 
 " Required:
 call dein#end()
@@ -110,8 +42,6 @@ endif
 " let g:solarized_termcolors=16
 syntax enable
 " set background=dark
-" colorscheme solarized
-" colorscheme molokai
 set t_Co=256
 
 "End dein Scripts-------------------------
@@ -134,10 +64,10 @@ set showcmd
 " カラーテーマの設定
 syntax on
 
-" ---vim-airline の設定
-let g:airline_powerline_fonts = 1
-set laststatus=2
-let g:airline_theme = 'molokai'
+" " ---vim-airline の設定
+" let g:airline_powerline_fonts = 1
+" set laststatus=2
+" let g:airline_theme = 'molokai'
 
 " カーソル行を強調表示しない
 set nocursorline
@@ -170,14 +100,7 @@ nnoremap <Down> gj
 nnoremap <Up>   gk
 
 " <C-e>で行末に移動してインサートモードに入る
-nnoremap <C-e> $a
 inoremap <C-e> <C-o>$
-
-" IME設定
-" if has('unix')
-"   inoremap <silent><Esc> <Esc>:silent call system('fcitx-remote -c" > /dev/null 2>&1')<CR>
-"   cnoremap <silent><Esc> <Esc>:silent call system('fcitx-remote -c" > /dev/null 2>&1')<CR>
-" endif 
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -202,14 +125,6 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
-" スクリプト実行系
-" 編集中のpythonスクリプトを直接実行できるようにする 
-autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
-
 " macだと，バックスペースが効かなかったので，下の設定を追加
 set backspace=indent,eol,start
 
-noremap <F5> <ESC>:call RUN()<ENTER>
-function! RUN()                     
-  :w|!./%;read                      
-endfunction
