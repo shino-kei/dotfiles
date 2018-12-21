@@ -75,3 +75,7 @@ vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 [[plugins]]
 repo = 'Lokaltog/vim-powerline'
+
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
