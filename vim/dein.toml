@@ -1,44 +1,4 @@
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_i = 1
-hook_source = '''
-    call deoplete#enable()
-    " No display of the number of competion list
-    set shortmess+=c
-
-    " <TAB>: completion.
-    inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ deoplete#manual_complete()
-    function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('')[col - 1]  =~ '\s'
-    endfunction
-
-    " <S-TAB>: completion back.
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-    " <C-e>: popup cancel
-    inoremap <expr><C-e>       deoplete#cancel_popup()
-
-    call deoplete#custom#source('_', 'matchers', ['matcher_head'])
-    call deoplete#custom#source('_', 'converters', [
-          \ 'converter_remove_paren',
-          \ 'converter_remove_overlap',
-          \ 'matcher_length',
-          \ 'converter_truncate_abbr',
-          \ 'converter_truncate_menu',
-          \ 'converter_auto_delimiter',
-          \ ])
-    call deoplete#custom#option('keyword_patterns', {
-          \ '_': '[a-zA-Z_]\k*\(?',
-          \ 'tex': '[^\w|\s][a-zA-Z_]\w*',
-          \ })
-    call deoplete#custom#option('camel_case', v:true)
-'''
-
-[[plugins]]
 repo = 'zchee/deoplete-clang'
 on_ft = ['c', 'cpp', 'cmake']
 hook_source = '''
@@ -63,3 +23,55 @@ hook_add = '''
   highlight link ALEErrorSign Tagg
   highlight link ALEWarningSign StorageClass
 '''
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+
+  " 水平に分割する
+  let g:quickrun_config = get(g:, 'quickrun_config', {})
+  let g:quickrun_config._ = {
+        \ 'outputter' : 'error',
+        \ 'outputter/error/success' : 'buffer',
+        \ 'outputter/error/error'   : 'quickfix',
+        \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+        \ 'outputter/buffer/close_on_empty' : 1,
+        \ }
+
+  let g:quickrun_config.cpp = {
+  \   'command': 'g++',
+  \   'cmdopt': '-std=c++11'
+  \ }
+
+  " \r でquickfixを閉じて、保存してからquickrunを実行する。
+  let g:quickrun_no_default_key_mappings = 1
+  nnoremap \q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+  xnoremap \q :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
+
+  " quickrun.vim が実行していない場合には <C-c> を呼び出す
+  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>" 
+  nnoremap <silent> <C-q> :QuickRun<CR>
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_source = '''
+" ファイル一覧
+noremap [denite] :Denite file_rec -mode=insert
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ ['.git/', '__pycache__/', '*.o', '*.make', '*.min.*'])"
+'''   
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_add = '''
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
+'''
+
+[[plugins]]
+repo = 'Lokaltog/vim-powerline'
