@@ -20,7 +20,11 @@ case ${OSTYPE} in
     
     # lessコマンド時の色設定
     export LESS='-R'
-    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+    
+    if [[ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]]; then
+	    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+    fi
+	    
 
     # 各言語向けにgitignoreを自動生成できるようにする
     function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -80,16 +84,19 @@ zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
+## cd と同時にlsする
+setopt auto_cd
+function chpwd() { ls }
 
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
 ## ros setings
-source /opt/ros/kinetic/setup.zsh
+source /opt/ros/melodic/setup.zsh
 # source $HOME/shinoda_ws/devel/setup.bash
-# source $HOME/ros_catkin_ws/kinetic/devel/setup.zsh
-source /home/leus/ros_catkin_ws/skn_ros_ws/devel/setup.zsh
-source /usr/local/bin/virtualenvwrapper.sh
+source $HOME/ros_catkin_ws/devel/setup.zsh
+# source /home/leus/ros_catkin_ws/skn_ros_ws/devel/setup.zsh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 export EDITOR='vim'
 
