@@ -91,13 +91,6 @@ function chpwd() { ls }
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
-## ros setings
-source /opt/ros/melodic/setup.zsh
-# source $HOME/shinoda_ws/devel/setup.bash
-source $HOME/ros_catkin_ws/devel/setup.zsh
-# source /home/leus/ros_catkin_ws/skn_ros_ws/devel/setup.zsh
-# source /usr/local/bin/virtualenvwrapper.sh
-
 export EDITOR='vim'
 
 #export http_proxy=

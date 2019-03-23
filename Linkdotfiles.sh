@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DIR=~/dotfiles_shinoda
+DIR=~/dotfiles
 
 # 初回のみzpreztoをインストールする
 if [ ! -e ~/.zprezto ]; then 
@@ -19,7 +19,6 @@ ln -sf ${DIR}/zpreztorc ~/.zpreztorc
 ln -sf ${DIR}/vimrc ~/.vimrc
   # ln -sf ${DIR}/gitconfig ~/.gitconfig
 ln -sf ${DIR}/dircolors.256dark ~/.dircolors
-# ln -sf ${DIR}/setup_ros.sh ~/setup_ros.sh
 
 # OSごとの設定
 case ${OSTYPE} in
@@ -30,6 +29,7 @@ case ${OSTYPE} in
     ;;
   linux*)
     # ここに linux向けの設定
+    cp ${DIR}/ros/setup_ros_ws.sh ~/.setup_ros_ws.sh
     zsh ${DIR}/install_dein.sh
     ;;
 

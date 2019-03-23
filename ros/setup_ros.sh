@@ -1,7 +1,7 @@
 # rosのセットアップスクリプトを環境変数に取り込む
 
 ROS_SETUP_PATH="/opt/ros/melodic/"
-WS_SETUP_PATH="$HOME/catkin_ws/devel/"
+WS_SETUP_PATH="$HOME/ros_catkin_ws/devel/"
 
 # ネットワーク設定
 # export ROS_MASTER_URI=http://devel-XPS-8700.local:11311
