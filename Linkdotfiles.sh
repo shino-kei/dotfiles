@@ -13,9 +13,13 @@ if [ ! -e ~/.zprezto ]; then
     done
 fi
 
+if [ ! -e ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 ln -sf ${DIR}/zshrc_zprezto ~/.zshrc
 ln -sf ${DIR}/zpreztorc ~/.zpreztorc
-# ln -sf ${DIR}/tmux.conf ~/.tmux.conf
+ln -sf ${DIR}/tmux.conf ~/.tmux.conf
 ln -sf ${DIR}/vimrc ~/.vimrc
   # ln -sf ${DIR}/gitconfig ~/.gitconfig
 ln -sf ${DIR}/dircolors.256dark ~/.dircolors
