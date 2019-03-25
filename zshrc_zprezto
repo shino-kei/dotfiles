@@ -32,6 +32,8 @@ case ${OSTYPE} in
     if [[ `uname -a` =~ Microsoft ]]; then
       source $HOME/dotfiles/setup_wsl.sh
     fi
+
+    source ~/.setup_ros_ws.sh
     ;;
 
   cygwin)
