@@ -15,7 +15,7 @@ case ${OSTYPE} in
   linux*)
     # エイリアスの設定
     alias open="xdg-open"
-    alias ls='ls -hF --color=auto --hide=*.*~'
+    alias ls='ls -hF --color=auto'
     setopt nonomatch
     
     # lessコマンド時の色設定
@@ -79,21 +79,24 @@ alias difftool='git difftool'
 alias -g L='| less'
 alias -g G='| grep -i'
 
-## cdr system stuff.
+# cdの後にlsを実行
+# chpwd() { ls -ltr --color=auto }
+
+# ## cdr system stuff.
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500 
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
-
-## cd と同時にlsする
+#
+# ## cd と同時にlsする
 setopt auto_cd
 function chpwd() { ls }
 
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 #export http_proxy=
 #export https_proxy=
