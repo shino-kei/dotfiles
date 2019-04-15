@@ -1,5 +1,7 @@
 echo "installing dein"
 
+DIR=`readlink -f $(dirname $0)`
+
 if [ -e  $HOME/.vim/dein ]; then
   echo "dein already installed :skiped"
 else
@@ -9,5 +11,5 @@ else
 fi
 
 mkdir -p $HOME/.vim/dein/toml
-ln -sf ~/dotfiles/vim/dein.toml ~/.vim/dein/toml/dein.toml
-ln -sf ~/dotfiles/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml
+ln -sf ~/${DIR}/vim/dein.toml ~/.vim/dein/toml/dein.toml
+ln -sf ~/${DIR}/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml
