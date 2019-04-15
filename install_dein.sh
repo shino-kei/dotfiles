@@ -11,5 +11,5 @@ else
 fi
 
 mkdir -p $HOME/.vim/dein/toml
-ln -sf ~/${DIR}/vim/dein.toml ~/.vim/dein/toml/dein.toml
-ln -sf ~/${DIR}/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml
+ln -sf ${DIR}/vim/dein.toml ~/.vim/dein/toml/dein.toml
+ln -sf ${DIR}/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml
