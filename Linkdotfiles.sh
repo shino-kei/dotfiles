@@ -40,6 +40,7 @@ case ${OSTYPE} in
     # ここに linux向けの設定
     cp ${DIR}/ros/setup_ros_ws.sh ~/.setup_ros_ws.sh
     zsh ${DIR}/install_dein.sh
+    ${DIR}/cpp/install_clangd.sh
     ;;
 
   cygwin)
