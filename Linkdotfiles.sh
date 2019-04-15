@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DIR=~/dotfiles
+DIR=`readlink -f $(dirname $0)`
 
 # 初回のみzpreztoをインストールする
 if [ ! -e ~/.zprezto ]; then 
