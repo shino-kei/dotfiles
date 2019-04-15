@@ -15,7 +15,7 @@ case ${OSTYPE} in
   linux*)
     # エイリアスの設定
     alias open="xdg-open"
-    alias ls='ls -hF --color=auto --hide=*.*~'
+    alias ls='ls -hF --color=auto'
     setopt nonomatch
     
     # lessコマンド時の色設定
@@ -68,32 +68,47 @@ if [ -f ~/.dircolors ]; then
 fi
 
 alias difftool='git difftool'
-# export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-# alias ls="ls -hF --color=auto"
-# alias gls="gls --color"
-
-# zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-
 
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep -i'
 
-## cdr system stuff.
+# ## cdr system stuff.
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500 
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
-
-## cd と同時にlsする
+#
+# ## cd と同時にlsする
 setopt auto_cd
 function chpwd() { ls }
 
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
-export EDITOR='vim'
+export EDITOR='nvim'
+
+# alias setting 
+## edit setting script
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias initnvim='vim ~/.config/nvim/init.vim'
+
+# ls alias
+alias cl='clear && echo "pwd: `pwd`" && ls'
+
+## git alias
+alias ga='git add'
+alias gd='git diff'
+alias gs='git status'
+alias gp='git push'
+alias gb='git branch'
+alias gst='git status'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gc='git commit'
+alias gtr='git tree'
 
 #export http_proxy=
 #export https_proxy=
