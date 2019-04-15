@@ -34,6 +34,7 @@ case ${OSTYPE} in
     fi
 
     source ~/.setup_ros_ws.sh
+    source ~/.zshrc_local
     ;;
 
   cygwin)
@@ -112,3 +113,5 @@ alias gtr='git tree'
 
 #export http_proxy=
 #export https_proxy=
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
