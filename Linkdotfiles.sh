@@ -41,6 +41,7 @@ case ${OSTYPE} in
     cp ${DIR}/ros/setup_ros_ws.sh ~/.setup_ros_ws.sh
     zsh ${DIR}/install_dein.sh
     ${DIR}/cpp/install_clangd.sh
+    ln -sf $DIR/vscode/link.sh
     ;;
 
   cygwin)

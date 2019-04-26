@@ -1,0 +1,103 @@
+{
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.insert": "#BF616A",
+  "vim.statusBarColors.visual": "#B48EAD",
+  "vim.statusBarColors.visualline": "#B48EAD",
+  "vim.statusBarColors.visualblock": "#A3BE8C",
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "after":[
+        "g",
+        "c"
+      ]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "A",
+        "A"
+      ],
+      "after": [
+        "<Esc>",
+        "A"
+      ]
+    },
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "n"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        ":w",
+        "code-runner.run"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "commands": [
+        "editor.action.commentLine"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "q"
+      ],
+      "commands": [
+        ":q"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        ":w"
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "vim.hlsearch": true,
+  "breadcrumbs.enabled": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#B48EAD",
+    "statusBar.noFolderBackground": "#B48EAD",
+    "statusBar.debuggingBackground": "#B48EAD"
+  },
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "vim.useSystemClipboard": true
+}
