@@ -92,12 +92,14 @@
   "vim.hlsearch": true,
   "breadcrumbs.enabled": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#B48EAD",
-    "statusBar.noFolderBackground": "#B48EAD",
-    "statusBar.debuggingBackground": "#B48EAD"
+    "statusBar.background": "#8FBCBB",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E"
   },
   "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.enabled": true,
-  "vim.useSystemClipboard": true
+  "vim.useSystemClipboard": true,
+  "python.linting.flake8CategorySeverity.W": "Error",
+  "python.linter": "flake8",
+  "python.linting.flake8Enabled": true
 }
