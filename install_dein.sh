@@ -1,15 +1,16 @@
 echo "installing dein"
 
-DIR=`readlink -f $(dirname $0)`
+dir=`readlink -f $(dirname $0)`
 
-if [ -e  $HOME/.vim/dein ]; then
+if [ -e  $home/.vim/dein ]; then
   echo "dein already installed :skiped"
 else
-  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
-  mkdir $HOME/.vim/dein
-  sh /tmp/installer.sh $HOME/.vim/dein
+  curl https://raw.githubusercontent.com/shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
+  mkdir $home/.vim/dein
+  sh /tmp/installer.sh $home/.vim/dein
+  rm -f /tmp/installer.sh
 fi
 
-mkdir -p $HOME/.vim/dein/toml
-ln -sf ${DIR}/vim/dein.toml ~/.vim/dein/toml/dein.toml
-ln -sf ${DIR}/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml
+mkdir -p $home/.vim/dein/toml
+ln -sf ${dir}/vim/dein.toml ~/.vim/dein/toml/dein.toml
+ln -sf ${dir}/vim/dein_lazy.toml ~/.vim/dein/toml/dein_lazy.toml

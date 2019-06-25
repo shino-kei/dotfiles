@@ -94,9 +94,13 @@
   "workbench.colorCustomizations": {
     "statusBar.background": "#8FBCBB",
     "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB"
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E"
   },
   "python.linting.pylintEnabled": false,
+  "vim.useSystemClipboard": true,
+  "python.linting.flake8CategorySeverity.W": "Error",
+  "python.linter": "flake8",
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "vim.useSystemClipboard": true,
