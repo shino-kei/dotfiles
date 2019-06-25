@@ -1,6 +1,6 @@
 {
   "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.normal": "#8FBCBB",
   "vim.statusBarColors.insert": "#BF616A",
   "vim.statusBarColors.visual": "#B48EAD",
   "vim.statusBarColors.visualline": "#B48EAD",
@@ -12,7 +12,7 @@
         "<leader>",
         "c"
       ],
-      "after":[
+      "after": [
         "g",
         "c"
       ]
@@ -90,16 +90,19 @@
   "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.hlsearch": true,
-  "breadcrumbs.enabled": true,
+  "breadcrumbs.enabled": false,
   "workbench.colorCustomizations": {
     "statusBar.background": "#8FBCBB",
     "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E"
+    "statusBar.debuggingBackground": "#8FBCBB"
   },
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "vim.useSystemClipboard": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Cobalt2",
+  "editor.minimap.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": -1
 }
