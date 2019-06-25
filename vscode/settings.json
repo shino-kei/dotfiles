@@ -101,5 +101,6 @@
   "vim.useSystemClipboard": true,
   "python.linting.flake8CategorySeverity.W": "Error",
   "python.linter": "flake8",
-  "python.linting.flake8Enabled": true
+  "python.linting.flake8Enabled": true,
+  "editor.formatOnSave": true
 }
