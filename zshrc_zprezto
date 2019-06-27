@@ -114,4 +114,33 @@ alias gtr='git tree'
 #export http_proxy=
 #export https_proxy=
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ !  -f ~/.fzf.zsh ] ;then
+  git clone https://github.com/junegunn/fzf.git ~/.fzf
+	bash ~/.fzf/install
+fi 
+
+source ~/.fzf.zsh
+
+fd() {
+	local dir
+	dir=$(find ${1:-.} -path '*/\.*' -prune \
+		-o -type d -print 2> /dev/null | fzf +m) &&
+		cd "$dir"
+}
+
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
