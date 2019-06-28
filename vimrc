@@ -79,10 +79,22 @@ set showcmd
 " カラーテーマの設定
 syntax on
 
-" " ---vim-airline の設定
-" let g:airline_powerline_fonts = 1
-" set laststatus=2
-" let g:airline_theme = 'molokai'
+let mapleader = "\<Space>"
+inoremap <silent> jj <ESC>
+inoremap <silent> AA <ESC>A
+
+nnoremap <Leader>o :only<CR>
+nnoremap <Leader>n :noh<CR>
+nnoremap <Leader>; A;<ESC>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>m :w<CR>:make<CR>
+nnoremap <Leader>r :QuickRun<CR>
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+
+" replace ';' and ':'
+noremap ; :
+noremap : ;
 
 " カーソル行を強調表示しない
 set nocursorline
