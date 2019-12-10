@@ -20,10 +20,12 @@
 	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
         # 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
 [diff]
-	tool = vimdff
+	tool = vimdiff
 [difftool]
 	prompt = false
 [merge]
 	tool = vimdiff
 [mergetool]
 	prompt = false
+[credential]
+  helper = "cache --timeout=3600"
