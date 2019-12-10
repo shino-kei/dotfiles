@@ -89,6 +89,7 @@ function chpwd() { ls }
 alias note='jupyter notebook'
 
 export EDITOR='nvim'
+export VISUAL='nvim'
 
 # alias setting 
 ## edit setting script
