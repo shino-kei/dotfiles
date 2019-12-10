@@ -4,7 +4,6 @@
 [push]
 	default = matching
 [core]
-	editor = vim -c \"set fenc=utf-8\"
 	autocrlf = input
 	safecrlf = true
 
