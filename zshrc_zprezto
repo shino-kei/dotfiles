@@ -24,7 +24,7 @@ case ${OSTYPE} in
     if [[ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]]; then
 	    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
     fi
-	    
+    alias ls='ls --group-directories-first --color=auto --hide="*.pyc" '	    
 
     # 各言語向けにgitignoreを自動生成できるようにする
     function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
