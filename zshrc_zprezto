@@ -145,3 +145,15 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+alias rte='rostopic echo $(rostopic list | fzf)'
+alias rti='rostopic info $(rostopic list | fzf)'
+alias rni='rosnode info $(rosnode list | fzf)'
+
+# unalias z
+z() {
+  if [[ -z "$*" ]]; then
+    cd "$(fasd_cd -d | fzf -1 -0 --no-sort --tac +m | sed 's/^[0-9,.]* *//')"
+  else
+    cd "$(fasd_cd -d | fzf --query="$*" -1 -0 --no-sort --tac +m | sed 's/^[0-9,.]* *//')"
+  fi
+}
