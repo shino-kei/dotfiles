@@ -11,7 +11,7 @@ links:
 	ln -sf ${PWD}/zpreztorc ~/.zpreztorc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 	ln -sf ${PWD}/vimrc ~/.vimrc
-		# ln -sf ${PWD}/gitconfig ~/.gitconfig
+	ln -sf ${PWD}/git/gitconfig ~/.gitconfig
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
 		
 
