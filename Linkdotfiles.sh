@@ -22,8 +22,8 @@ fi
 git config --global alias.tree 'log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"'
 
 # make symbolic links
-ln -sf ${DIR}/zshrc_zprezto ~/.zshrc
-ln -sf ${DIR}/zpreztorc ~/.zpreztorc
+ln -sf ${DIR}/zsh/zshrc_zprezto ~/.zshrc
+ln -sf ${DIR}/zsh/zpreztorc ~/.zpreztorc
 ln -sf ${DIR}/tmux.conf ~/.tmux.conf
 ln -sf ${DIR}/vimrc ~/.vimrc
 ln -sf ${DIR}/git/gitconfig ~/.gitconfig

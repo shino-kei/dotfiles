@@ -33,6 +33,7 @@ case ${OSTYPE} in
       source $HOME/dotfiles/setup_wsl.sh
     fi
 
+    source ~/dotfiles/golang/golang.sh
     source ~/.setup_ros_ws.sh
     source ~/.zshrc_local
     ;;

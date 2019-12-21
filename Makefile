@@ -7,8 +7,8 @@ all: links install_deps
 
 .PHONY: links
 links: 
-	ln -sf ${PWD}/zshrc_zprezto ~/.zshrc
-	ln -sf ${PWD}/zpreztorc ~/.zpreztorc
+	ln -sf ${PWD}/zsh/zshrc_zprezto ~/.zshrc
+	ln -sf ${PWD}/zsh/zpreztorc ~/.zpreztorc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	ln -sf ${PWD}/git/gitconfig ~/.gitconfig
