@@ -28,3 +28,6 @@
 	prompt = false
 [credential]
   helper = "cache --timeout=3600"
+[ghq]
+    root = ~/ghq
+    root = ~/go/src
