@@ -46,7 +46,7 @@ case ${OSTYPE} in
 
   cygwin)
     # ここに，cygwin(windows)向け設定を書く
-    ln -sf ${DIR}/minttyrc ~/.minttyrc
+    ln -sf ${DIR}/windows/minttyrc ~/.minttyrc
     zsh ${DIR}/install_dein.sh
     ;;
 
