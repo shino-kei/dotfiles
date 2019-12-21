@@ -8,7 +8,14 @@ let s:dein_dir = $HOME . '/.vim/dein'
 
 " Required:
 set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
- 
+
+" dein自体の自動インストール
+let s:cache_home = expand('~/.vim')
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
 
 " Required:
 call dein#begin('$HOME/.vim/dein')

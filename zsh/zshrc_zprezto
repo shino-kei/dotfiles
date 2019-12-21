@@ -24,7 +24,7 @@ case ${OSTYPE} in
     if [[ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]]; then
 	    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
     fi
-	    
+    alias ls='ls --group-directories-first --color=auto --hide="*.pyc" '	    
 
     # 各言語向けにgitignoreを自動生成できるようにする
     function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -33,6 +33,7 @@ case ${OSTYPE} in
       source $HOME/dotfiles/setup_wsl.sh
     fi
 
+    source ~/dotfiles/golang/golang.sh
     source ~/.setup_ros_ws.sh
     source ~/.zshrc_local
     ;;
@@ -89,6 +90,7 @@ function chpwd() { ls }
 alias note='jupyter notebook'
 
 export EDITOR='nvim'
+export VISUAL='nvim'
 
 # alias setting 
 ## edit setting script
@@ -144,3 +146,15 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+alias rte='rostopic echo $(rostopic list | fzf)'
+alias rti='rostopic info $(rostopic list | fzf)'
+alias rni='rosnode info $(rosnode list | fzf)'
+
+# unalias z
+z() {
+  if [[ -z "$*" ]]; then
+    cd "$(fasd_cd -d | fzf -1 -0 --no-sort --tac +m | sed 's/^[0-9,.]* *//')"
+  else
+    cd "$(fasd_cd -d | fzf --query="$*" -1 -0 --no-sort --tac +m | sed 's/^[0-9,.]* *//')"
+  fi
+}
