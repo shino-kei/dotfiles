@@ -33,13 +33,13 @@ ln -sf ${DIR}/dircolors.256dark ~/.dircolors
 case ${OSTYPE} in
   darwin*)
     # ここに Mac 向けの設定を書く
-    zsh ${DIR}/install_dein.sh
+    zsh ${DIR}/vim/install_dein.sh
 
     ;;
   linux*)
     # ここに linux向けの設定
     cp -n ${DIR}/ros/setup_ros_ws.sh ~/.setup_ros_ws.sh
-    zsh ${DIR}/install_dein.sh
+    zsh ${DIR}/vim/install_dein.sh
     bash ${DIR}/cpp/install_clangd.sh
     bash $DIR/vscode/link_vscode_config.sh
     ;;
@@ -47,7 +47,7 @@ case ${OSTYPE} in
   cygwin)
     # ここに，cygwin(windows)向け設定を書く
     ln -sf ${DIR}/windows/minttyrc ~/.minttyrc
-    zsh ${DIR}/install_dein.sh
+    zsh ${DIR}/vim/install_dein.sh
     ;;
 
 

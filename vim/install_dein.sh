@@ -1,3 +1,5 @@
+#! /bin/bash
+
 echo "installing dein"
 
 dir=`readlink -f $(dirname $0)`

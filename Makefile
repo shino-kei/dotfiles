@@ -9,8 +9,8 @@ all: links install_deps
 links: 
 	ln -sf ${PWD}/zsh/zshrc_zprezto ~/.zshrc
 	ln -sf ${PWD}/zsh/zpreztorc ~/.zpreztorc
-	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
-	ln -sf ${PWD}/vimrc ~/.vimrc
+	ln -sf ${PWD}/tmux/tmux.conf ~/.tmux.conf
+	ln -sf ${PWD}/vim/vimrc ~/.vimrc
 	ln -sf ${PWD}/git/gitconfig ~/.gitconfig
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
 		
