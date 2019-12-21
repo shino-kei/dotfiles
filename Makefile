@@ -12,6 +12,7 @@ links:
 	ln -sf ${PWD}/tmux/tmux.conf ~/.tmux.conf
 	ln -sf ${PWD}/vim/vimrc ~/.vimrc
 	ln -sf ${PWD}/git/gitconfig ~/.gitconfig
+	ln -sf ${PWD}/git/tigrc ~/.tigrc
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
 		
 
@@ -24,7 +25,7 @@ update:
 
 .PHONY: install_deps 
 install_deps: 
-	xargs ${SUDO} apt install -y < ${PWD}/requirements.txt
+	xargs ${SUDO} apt install -y < ${PWD}/apt/requirements.txt
 	${SUDO} update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 100
 	${SUDO} update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
 	${SUDO} update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-6.0 100
