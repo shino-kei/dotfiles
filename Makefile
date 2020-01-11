@@ -25,6 +25,7 @@ update:
 
 .PHONY: install_deps 
 install_deps: 
+	zsh ${PWD}/zsh/install_prezto.sh
 	xargs ${SUDO} apt install -y < ${PWD}/apt/requirements.txt
 	${SUDO} update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 100
 	${SUDO} update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
