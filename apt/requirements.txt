@@ -21,3 +21,4 @@ clang-format
 clang-6.0 
 clang-tools-6.0
 silversearcher-ag
+tig
