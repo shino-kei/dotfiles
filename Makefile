@@ -3,7 +3,7 @@ SUDO=sudo
 PWD := $(dir $(lastword $(MAKEFILE_LIST)))
 PWD=${shell pwd}
 
-all: links install_deps
+all: links install_deps themes
 
 .PHONY: links
 links: 
