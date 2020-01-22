@@ -160,3 +160,19 @@ z() {
     cd "$(fasd_cd -d | fzf --query="$*" -1 -0 --no-sort --tac +m | sed 's/^[0-9,.]* *//')"
   fi
 }
+
+
+if type "xtermcontrol" > /dev/null 2>&1; then
+  THEME_DIR=~/.theme
+  DEFAULT_THEME=google_dark.theme
+  SSH_THEME=solarized_dark.theme
+  ssh() {
+    xtermcontrol --file=${THEME_DIR}/${SSH_THEME}
+    command ssh "$@"
+    xtermcontrol --file=${THEME_DIR}/${DEFAULT_THEME}
+  }
+fi
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+

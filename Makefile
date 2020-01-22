@@ -32,3 +32,9 @@ install_deps:
 	${SUDO} update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
 	${SUDO} update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-6.0 100
 
+.PHONY: themes
+themes:
+	mkdir -p ~/.theme
+	ln -sf ${PWD}/theme/google_dark.theme ~/.theme
+	ln -sf ${PWD}/theme/solarized_dark.theme ~/.theme
+
