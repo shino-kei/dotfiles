@@ -14,6 +14,7 @@ links:
 	ln -sf ${PWD}/git/gitconfig ~/.gitconfig
 	ln -sf ${PWD}/git/tigrc ~/.tigrc
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
+	ln -sf ${PWD}/atcoder/atcoder-tools.toml ~/.atcodertools.toml
 		
 
 .PHONY: update

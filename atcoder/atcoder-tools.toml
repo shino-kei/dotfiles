@@ -1,0 +1,22 @@
+[codestyle]
+indent_type='space' # 'tab' or 'space'
+indent_width=4
+workspace_dir='~/workspace/atcoder'
+lang='cpp' # Check README.md for the supported languages.
+template_file='~/dotfiles/atcoder/template/default_template.cpp'
+[postprocess]
+exec_on_each_problem_dir='clang-format -i ./*.cpp'
+# exec_on_contest_dir='touch CMakeLists.txt'
+
+[run]
+compile_command="g++ main.cpp -o main.out"
+run_command="./main.out"
+
+[etc]
+download_without_login=true
+parallel_download=true
+save_no_session_cache=false
+in_example_format="in_{}.txt"
+out_example_format="out_{}.txt"
+# compile_before_testing=true
+# compile_only_when_diff_detected=true
