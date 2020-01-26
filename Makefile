@@ -15,6 +15,8 @@ links:
 	ln -sf ${PWD}/git/tigrc ~/.tigrc
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
 	ln -sf ${PWD}/atcoder/atcoder-tools.toml ~/.atcodertools.toml
+	touch ~/.zshrc_local
+	touch ~/.setup_ros_ws.sh
 		
 
 .PHONY: update
