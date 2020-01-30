@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+using LL = long long;
+#define COUT(x) cout << #x << " = " << (x) << " (L" << __LINE__ << ")" << endl
+
 {% if mod %}
 const long long MOD = {{ mod }};
 {% endif %}
@@ -13,6 +16,7 @@ const string NO = "{{ no_str }}";
 
 {% if prediction_success %}
 void solve({{ formal_arguments }}){
+  // solver code
 
 }
 {% endif %}
