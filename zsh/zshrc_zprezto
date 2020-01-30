@@ -34,7 +34,7 @@ case ${OSTYPE} in
     fi
 
     source ~/dotfiles/golang/golang.sh
-    # if [[ -e ~/.setup_ros_ws.sh ]];then source ~/.setup_ros_ws.sh;fi
+    if [[ -e ~/.setup_ros_ws.sh ]];then source ~/.setup_ros_ws.sh;fi
     if [[ -e ~/.zshrc_local ]];then source ~/.zshrc_local;fi
       
     # source ~/.zshrc_local
@@ -70,6 +70,7 @@ if [ -f ~/.dircolors ]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
   fi
 fi
+
 
 alias difftool='git difftool'
 
