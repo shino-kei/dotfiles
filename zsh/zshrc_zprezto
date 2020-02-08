@@ -162,6 +162,10 @@ z() {
   fi
 }
 
+if type nvim >/dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 
 source  ~/dotfiles/zsh/set_xterm_color.sh
 
