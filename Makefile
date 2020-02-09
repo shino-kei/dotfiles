@@ -13,6 +13,7 @@ links:
 	ln -sf ${PWD}/vim/vimrc ~/.vimrc
 	ln -sf ${PWD}/git/gitconfig ~/.gitconfig
 	ln -sf ${PWD}/git/tigrc ~/.tigrc
+	command cp -f  ${PWD}/git/gitignore_global ~/.gitignore_global
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
 	ln -sf ${PWD}/atcoder/atcoder-tools.toml ~/.atcodertools.toml
 	touch ~/.zshrc_local
