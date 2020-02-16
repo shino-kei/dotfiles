@@ -1,0 +1,14 @@
+BasedOnStyle: Google
+---
+Language: Cpp
+AccessModifierOffset : -2
+AllowShortIfStatementsOnASingleLine : false
+AllowShortBlocksOnASingleLine : false
+AllowShortCaseLabelsOnASingleLine : false
+AllowShortFunctionsOnASingleLine : Empty
+ColumnLimit : 120
+SortIncludes : false
+AlwaysBreakTemplateDeclarations : true
+Standard : "C++11"
+---
+
