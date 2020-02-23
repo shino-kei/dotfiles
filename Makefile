@@ -16,6 +16,7 @@ links:
 	command cp -f  ${PWD}/git/gitignore_global ~/.gitignore_global
 	ln -sf ${PWD}/dircolors.256dark ~/.dircolors
 	ln -sf ${PWD}/atcoder/atcoder-tools.toml ~/.atcodertools.toml
+	ln -sf ${PWD}/cpp/clang-format ~/.clang-format
 	touch ~/.zshrc_local
 	touch ~/.setup_ros_ws.sh
 		
@@ -40,4 +41,9 @@ themes:
 	mkdir -p ~/.theme
 	ln -sf ${PWD}/theme/google_dark.theme ~/.theme
 	ln -sf ${PWD}/theme/solarized_dark.theme ~/.theme
+
+.PHONY: online-judge
+online-judge:
+	sudo -E -H pip3 install -r ${PWD}/atcoder/requirements.txt
+	
 
