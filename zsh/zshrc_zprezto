@@ -171,11 +171,8 @@ source  ~/dotfiles/zsh/set_xterm_color.sh
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-# tmux option
-SESSION_NAME=SSH_USER
+# auto open new tmux-session (only from ssh)
+SESSION_NAME="SSH"
 if [[ -z "$TMUX" && -n "$SSH_TTY" ]] && type tmux >/dev/null 2>&1; then
-  # option="new-session -A -s ${SESSION_NAME}"
-  # tmux $option && exit
-
   tmux new-session -A -s ${SESSION_NAME}
 fi
