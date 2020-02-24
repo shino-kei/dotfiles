@@ -24,7 +24,7 @@ links:
 .PHONY: update
 update:
 	git stash save
-	git pull --rebase
+	git pull --rebase origin $(git rev-parse --abbrev-ref HEAD)
 	git submodule update --init
 	git stash pop ; case "$$?" in * ) exit 0 ;; esac
 
