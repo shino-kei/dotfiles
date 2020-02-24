@@ -173,7 +173,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # tmux option
 SESSION_NAME=SSH_USER
-if [[ -z "$TMUX" && -z "$STY" ]] && type tmux >/dev/null 2>&1; then
+if [[ -z "$TMUX" && -n "$SSH_TTY" ]] && type tmux >/dev/null 2>&1; then
   # option="new-session -A -s ${SESSION_NAME}"
   # tmux $option && exit
 
