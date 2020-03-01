@@ -94,6 +94,9 @@ alias note='jupyter notebook'
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+# C-x -> C-h to ~
+bindkey -s '^X^h' '~/'   
+
 
 # alias setting 
 ## edit setting script
