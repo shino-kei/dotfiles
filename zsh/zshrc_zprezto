@@ -92,8 +92,6 @@ function chpwd() { ls }
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
-export EDITOR='nvim'
-export VISUAL='nvim'
 # C-x -> C-h to ~
 bindkey -s '^X^h' '~/'   
 
@@ -102,7 +100,6 @@ bindkey -s '^X^h' '~/'
 ## edit setting script
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
-alias initnvim='vim ~/.config/nvim/init.vim'
 
 # ls alias
 alias cl='clear && echo "pwd: `pwd`" && ls'
@@ -167,6 +164,8 @@ z() {
 
 if type nvim >/dev/null 2>&1; then
   alias vim='nvim'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
 fi
 
 
