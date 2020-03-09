@@ -1,6 +1,9 @@
 {
   "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.normal": [
+    "#8FBCBB",
+    "#434C5E"
+  ],
   "vim.statusBarColors.insert": "#BF616A",
   "vim.statusBarColors.visual": "#B48EAD",
   "vim.statusBarColors.visualline": "#B48EAD",
@@ -12,7 +15,7 @@
         "<leader>",
         "c"
       ],
-      "after":[
+      "after": [
         "g",
         "c"
       ]
@@ -85,6 +88,24 @@
       "commands": [
         ":w"
       ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
     }
   ],
   "vim.leader": "<space>",
@@ -102,5 +123,9 @@
   "python.linting.flake8CategorySeverity.W": "Error",
   "python.linter": "flake8",
   "python.linting.flake8Enabled": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "window.zoomLevel": -1,
+  "asciidoc.preview.style": "/home/leus/Documents/asciidoctor-skins/css/boot-cerulean.css",
+  "workbench.startupEditor": "newUntitledFile",
+  "C_Cpp.updateChannel": "Insiders"
 }
