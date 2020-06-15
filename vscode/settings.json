@@ -113,10 +113,9 @@
   "vim.hlsearch": true,
   "breadcrumbs.enabled": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E"
+    "statusBar.background": "#BF616A",
+    "statusBar.noFolderBackground": "#BF616A",
+    "statusBar.debuggingBackground": "#BF616A"
   },
   "python.linting.pylintEnabled": false,
   "vim.useSystemClipboard": true,
@@ -124,8 +123,14 @@
   "python.linter": "flake8",
   "python.linting.flake8Enabled": true,
   "editor.formatOnSave": true,
-  "window.zoomLevel": -1,
-  "asciidoc.preview.style": "/home/leus/Documents/asciidoctor-skins/css/boot-cerulean.css",
   "workbench.startupEditor": "newUntitledFile",
-  "C_Cpp.updateChannel": "Insiders"
+  "asciidoc.preview.useEditorStyle": false,
+  "window.customMenuBarAltFocus": false,
+  "window.titleBarStyle": "custom",
+  "git.autofetch": true,
+  "terminal.integrated.inheritEnv": false,
+  "explorer.confirmDragAndDrop": false,
+  "markdown.styles": [
+    "/home/shino-kei/Documents/style.css"
+  ]
 }
