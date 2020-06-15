@@ -34,7 +34,7 @@ case ${OSTYPE} in
     fi
 
     source ~/dotfiles/golang/golang.sh
-    # if [[ -e ~/.setup_ros_ws.sh ]];then source ~/.setup_ros_ws.sh;fi
+    if [[ -e ~/.setup_ros_ws.sh ]];then source ~/.setup_ros_ws.sh;fi
     if [[ -e ~/.zshrc_local ]];then source ~/.zshrc_local;fi
       
     # source ~/.zshrc_local
@@ -71,6 +71,7 @@ if [ -f ~/.dircolors ]; then
   fi
 fi
 
+
 alias difftool='git difftool'
 
 # グローバルエイリアス
@@ -91,14 +92,14 @@ function chpwd() { ls }
 ## Jupyterのコマンド短縮
 alias note='jupyter notebook'
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+# C-x -> C-h to ~
+bindkey -s '^X^h' '~/'   
+
 
 # alias setting 
 ## edit setting script
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
-alias initnvim='vim ~/.config/nvim/init.vim'
 
 # ls alias
 alias cl='clear && echo "pwd: `pwd`" && ls'
@@ -148,7 +149,7 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-alias rte='rostopic echo $(rostopic list | fzf)'
+alias rte='rostopic echo  -c $(rostopic list | fzf)'
 alias rti='rostopic info $(rostopic list | fzf)'
 alias rni='rosnode info $(rosnode list | fzf)'
 
@@ -161,8 +162,19 @@ z() {
   fi
 }
 
+if type nvim >/dev/null 2>&1; then
+  alias vim='nvim'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+fi
+
 
 source  ~/dotfiles/zsh/set_xterm_color.sh
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+# auto open new tmux-session (only from ssh)
+SESSION_NAME="SSH"
+if [[ -z "$TMUX" && -n "$SSH_TTY" ]] && type tmux >/dev/null 2>&1; then
+  tmux new-session -A -s ${SESSION_NAME}
+fi

@@ -14,8 +14,8 @@ run_command="./main.out"
 
 [etc]
 download_without_login=true
-parallel_download=true
-save_no_session_cache=false
+parallel_download=false
+save_no_session_cache=true
 in_example_format="in_{}.txt"
 out_example_format="out_{}.txt"
 # compile_before_testing=true
