@@ -1,6 +1,9 @@
 {
   "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.normal": [
+    "#8FBCBB",
+    "#434C5E"
+  ],
   "vim.statusBarColors.insert": "#BF616A",
   "vim.statusBarColors.visual": "#B48EAD",
   "vim.statusBarColors.visualline": "#B48EAD",
@@ -12,7 +15,7 @@
         "<leader>",
         "c"
       ],
-      "after":[
+      "after": [
         "g",
         "c"
       ]
@@ -85,6 +88,24 @@
       "commands": [
         ":w"
       ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
     }
   ],
   "vim.leader": "<space>",
@@ -92,15 +113,24 @@
   "vim.hlsearch": true,
   "breadcrumbs.enabled": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E"
+    "statusBar.background": "#BF616A",
+    "statusBar.noFolderBackground": "#BF616A",
+    "statusBar.debuggingBackground": "#BF616A"
   },
   "python.linting.pylintEnabled": false,
   "vim.useSystemClipboard": true,
   "python.linting.flake8CategorySeverity.W": "Error",
   "python.linter": "flake8",
   "python.linting.flake8Enabled": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "asciidoc.preview.useEditorStyle": false,
+  "window.customMenuBarAltFocus": false,
+  "window.titleBarStyle": "custom",
+  "git.autofetch": true,
+  "terminal.integrated.inheritEnv": false,
+  "explorer.confirmDragAndDrop": false,
+  "markdown.styles": [
+    "/home/shino-kei/Documents/style.css"
+  ]
 }

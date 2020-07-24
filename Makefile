@@ -32,6 +32,7 @@ update:
 install_deps: 
 	zsh ${PWD}/zsh/install_prezto.sh
 	xargs ${SUDO} apt install -y < ${PWD}/apt/requirements.txt
+	${SUDO} snap install go --classic
 	${SUDO} update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 100
 	${SUDO} update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
 	${SUDO} update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-6.0 100
