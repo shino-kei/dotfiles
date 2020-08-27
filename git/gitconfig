@@ -2,9 +2,9 @@
 	email = shino_kei@asagi.waseda.jp
 	name = shino-kei
 [push]
-	default = matching
+	default = current
 [core]
-	autocrlf = input
+	autocrlf = false
 	safecrlf = true
 	excludesfile = ~/.gitignore_global
 
@@ -32,3 +32,5 @@
 [ghq]
     root = ~/ghq
     root = ~/go/src
+[hub]
+	protocol = https
