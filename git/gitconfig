@@ -28,7 +28,7 @@
 [mergetool]
 	prompt = false
 [credential]
-  helper = "cache --timeout=3600"
+  helper = "cache --timeout=28800"
 [ghq]
     root = ~/ghq
     root = ~/go/src
