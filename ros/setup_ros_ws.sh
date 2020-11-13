@@ -39,6 +39,7 @@ alias rosti='rostopic info $(rostopic list | fzf)'
 alias rosni='rosnode info $(rosnode list | fzf)'
 alias rosmi='rosmsg info $(rosmsg list | fzf)'
 alias rossi='rosservice info $(rosservice list | fzf)'
+alias rosz='roscd $(rospack list-names | fzf)'
 
 function catkin-compile-commands-json() {
     local catkin_ws=$(echo $CMAKE_PREFIX_PATH | cut -d: -f1)/..
