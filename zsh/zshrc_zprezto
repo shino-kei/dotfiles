@@ -149,9 +149,6 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-alias rte='rostopic echo  -c $(rostopic list | fzf)'
-alias rti='rostopic info $(rostopic list | fzf)'
-alias rni='rosnode info $(rosnode list | fzf)'
 
 # unalias z
 z() {
@@ -178,3 +175,4 @@ SESSION_NAME="SSH"
 if [[ -z "$TMUX" && -n "$SSH_TTY" ]] && type tmux >/dev/null 2>&1; then
   tmux new-session -A -s ${SESSION_NAME}
 fi
+

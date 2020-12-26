@@ -41,7 +41,7 @@ case ${OSTYPE} in
     cp -n ${DIR}/ros/setup_ros_ws.sh ~/.setup_ros_ws.sh
     zsh ${DIR}/vim/install_dein.sh
     bash ${DIR}/cpp/install_clangd.sh
-    bash $DIR/vscode/link_vscode_config.sh
+    # bash $DIR/vscode/link_vscode_config.sh
     ;;
 
   cygwin)

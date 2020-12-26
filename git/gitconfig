@@ -2,9 +2,9 @@
 	email = shino_kei@asagi.waseda.jp
 	name = shino-kei
 [push]
-	default = matching
+	default = current
 [core]
-	autocrlf = input
+	autocrlf = false
 	safecrlf = true
 	excludesfile = ~/.gitignore_global
 
@@ -28,7 +28,9 @@
 [mergetool]
 	prompt = false
 [credential]
-  helper = "cache --timeout=3600"
+  helper = "cache --timeout=28800"
 [ghq]
     root = ~/ghq
     root = ~/go/src
+[hub]
+	protocol = https
