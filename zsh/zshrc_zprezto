@@ -116,6 +116,8 @@ alias gf='git fetch'
 alias gc='git commit'
 alias gtr='git tree'
 
+alias atgcc='g++ -std=gnu++17 -Wall -Wextra -Wno-unused-result -O2'
+
 #export http_proxy=
 #export https_proxy=
 
