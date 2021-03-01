@@ -163,6 +163,7 @@ z() {
 
 if type nvim >/dev/null 2>&1; then
   alias vim='nvim'
+  alias vimdiff='nvim -d'
   export EDITOR='nvim'
   export VISUAL='nvim'
 fi
@@ -178,3 +179,4 @@ if [[ -z "$TMUX" && -n "$SSH_TTY" ]] && type tmux >/dev/null 2>&1; then
   tmux new-session -A -s ${SESSION_NAME}
 fi
 
+export PATH=$PATH:$HOME/3rdparty/bin
