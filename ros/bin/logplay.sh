@@ -2,24 +2,19 @@
 
 usage_exit()
 {
-  echo "USAGE: $0 [filename] [-s time] "
+  echo "USAGE: $0 [-s time] filename "
 }
 
 
 SKIP=0
-file=$1
-
-echo $file
-if [ -z $file ]; then
-  file=$(ls |grep bag |fzf)
-fi
 
 
-while getopts hs:r: OPT
 
+while getopts s:r:h OPT
 do
   case $OPT in
     s)  SKIP=$OPTARG
+      echo "skip ${SKIP} seconds"
       ;;
     r)  RATE=$OPTARG
       ;;
@@ -31,6 +26,14 @@ do
       ;;
   esac
 done
+
+shift $((OPTIND - 1))
+
+file=$1
+echo $file
+if [ -z $file ]; then
+  file=$(ls |grep bag |fzf)
+fi
 
 
 if ! type rosbag > /dev/null 2>&1; then 
