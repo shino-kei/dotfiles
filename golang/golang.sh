@@ -11,4 +11,8 @@ if [ -x "`which go`" ]; then
       echo abort
     fi
   fi
+
+  if [ -x `which mmv` ];then
+    go get github.com/itchyny/mmv/cmd/mmv
+  fi
 fi
