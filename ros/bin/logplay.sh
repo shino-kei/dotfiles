@@ -7,7 +7,7 @@ usage_exit()
 
 
 SKIP=0
-
+RATE=1
 
 
 while getopts s:r:h OPT
@@ -41,6 +41,6 @@ if ! type rosbag > /dev/null 2>&1; then
   exit 1
 fi
 
-rosbag play $file --clock tf:=tf_old tf_static:=tf_static_old -s $SKIP 
+rosbag play $file --clock tf:=tf_old tf_static:=tf_static_old -s $SKIP -r $RATE
 
 
