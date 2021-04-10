@@ -12,7 +12,7 @@ if [ -x "`which go`" ]; then
     fi
   fi
 
-  if [ -x `which mmv` ];then
+  if [ ! -x `which mmv` ];then
     go get github.com/itchyny/mmv/cmd/mmv
   fi
 fi
