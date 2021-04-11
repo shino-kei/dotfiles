@@ -10,7 +10,11 @@ WS_SETUP_PATH="$HOME/ros_catkin_ws/melodic/devel/"
 # export ROS_IP=`hostname -I`
 
 # enable `catkin source` 
-source `catkin locate --shell-verbs`
+CATKIN_SHELL_VERBS=/usr/lib/python2.7/dist-packages/catkin_tools/verbs/catkin_shell_verbs.bash
+[ -e $CATKIN_SHELL_VERBS ] && source $CATKIN_SHELL_VERBS
+
+# source /usr/lib/python2.7/dist-packages/catkin_tools/verbs/catkin_shell_verbs.bash
+# source `catkin locate --shell-verbs`
 
 
 # ROS workspace setup
