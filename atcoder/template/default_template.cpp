@@ -9,7 +9,9 @@ using LL = long long;
 #define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();i++)
 #define RFOR(i,c) for(__typeof((c).rbegin())i=(c).rbegin();i!=(c).rend();i++)
 #define UNIQUE(v) v.erase( unique(v.begin(), v.end()), v.end() );
- 
+
+const int fx[]={+1,-1,+0,+0};
+const int fy[]={+0,+0,+1,-1};
 template<class T> ostream& operator<<(ostream &os, const vector<T> &t) {
 os<<"["; FOR(it,t) {if(it!=t.begin()) os<<","; os<<*it;} os<<"]"; return os;
 }
