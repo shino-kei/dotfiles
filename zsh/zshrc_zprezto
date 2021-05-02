@@ -34,6 +34,8 @@ case ${OSTYPE} in
     fi
 
     source ~/dotfiles/golang/golang.sh
+    source ~/dotfiles/rust/rust.sh
+
     if [[ -e ~/.setup_ros_ws.sh ]];then source ~/.setup_ros_ws.sh;fi
     if [[ -e ~/.zshrc_local ]];then source ~/.zshrc_local;fi
       
