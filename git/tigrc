@@ -30,7 +30,7 @@ set vertical-split = yes
 # set vertical-split = no
 # set vertical-split = auto
 
-set line-graphics = utf-8
+set line-graphics = ascii
 # set tab-size = 4
 set tab-size = 2
 # set ignore-space = all
