@@ -1,4 +1,7 @@
-# ローカル環境向け設定は別ファイルに記述する
+#sh ローカル環境向け設定は別ファイルに記述する
+
+export DOTFILES=~/dotfiles
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -33,9 +36,11 @@ case ${OSTYPE} in
       source $HOME/dotfiles/setup_wsl.sh
     fi
 
-    source ~/dotfiles/golang/golang.sh
+    source $DOTFILES/ranger/ranger.sh
+    source $DOTFILES/golang/golang.sh
     if [[ -e ~/.setup_ros_ws.sh ]];then source ~/.setup_ros_ws.sh;fi
     if [[ -e ~/.zshrc_local ]];then source ~/.zshrc_local;fi
+
       
     # source ~/.zshrc_local
     ;;
@@ -178,5 +183,6 @@ SESSION_NAME="SSH"
 if [[ -z "$TMUX" && -n "$SSH_TTY" ]] && type tmux >/dev/null 2>&1; then
   tmux new-session -A -s ${SESSION_NAME}
 fi
+
 
 export PATH=$PATH:$HOME/3rdparty/bin
